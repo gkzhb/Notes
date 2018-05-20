@@ -1,0 +1,4 @@
+﻿  Queue.cpp
+test.obj : error LNK2019: 无法解析的外部符号 "private: void __thiscall Queue<int>::append(struct Queue<int>::Node *,int const &)" (?append@?$Queue@H@@AAEXPAUNode@1@ABH@Z)，该符号在函数 "public: void __thiscall Queue<int>::push_back(int const &)" (?push_back@?$Queue@H@@QAEXABH@Z) 中被引用
+test.obj : error LNK2019: 无法解析的外部符号 "private: void __thiscall Queue<int>::uncreate(void)" (?uncreate@?$Queue@H@@AAEXXZ)，该符号在函数 "public: __thiscall Queue<int>::~Queue<int>(void)" (??1?$Queue@H@@QAE@XZ) 中被引用
+D:\code\vs\homework\Debug\HW5_1.exe : fatal error LNK1120: 2 个无法解析的外部命令

@@ -1,0 +1,1 @@
+若出现编译errorC4996的错误，请在HW6_1项目属性 -> C/C++ -> 预处理器 -> 预处理器定义中的最后添加   ;_SCL_SECURE_NO_WARNINGS
