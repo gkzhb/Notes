@@ -1,6 +1,2 @@
 ﻿  HW1_1_17307130118.cpp
-d:\code\vs\homework\hw1_1\hw1_1_17307130118.cpp : fatal error C1051: 程序数据库文件“D:\code\vs\homework\HW1_1\x64\Debug\vc141.pdb”有过时的格式，将其删除并重新编译
-FileTracker : error FTK1013: 在以下文件跟踪日志文件中，未能找到 unicode 字节顺序标记: D:\code\vs\homework\HW1_1\x64\Debug\HW1_1.tlog\CL.read.1.tlog。跟踪数据无效。
-  
-FileTracker : error FTK1013: 在以下文件跟踪日志文件中，未能找到 unicode 字节顺序标记: D:\code\vs\homework\HW1_1\x64\Debug\HW1_1.tlog\CL.write.1.tlog。跟踪数据无效。
-  
+  HW1_1.vcxproj -> D:\code\vs\homework\x64\Debug\HW1_1.exe

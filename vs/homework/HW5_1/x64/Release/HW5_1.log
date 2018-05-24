@@ -1,4 +1,0 @@
-﻿  Queue.cpp
-test.obj : error LNK2001: 无法解析的外部符号 "private: void __cdecl Queue<int>::uncreate(void)" (?uncreate@?$Queue@H@@AEAAXXZ)
-test.obj : error LNK2001: 无法解析的外部符号 "private: void __cdecl Queue<int>::append(class Queue<int>::Node *,int const &)" (?append@?$Queue@H@@AEAAXPEAVNode@1@AEBH@Z)
-D:\code\vs\homework\x64\Release\HW5_1.exe : fatal error LNK1120: 2 个无法解析的外部命令
