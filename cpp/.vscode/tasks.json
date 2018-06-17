@@ -32,3 +32,13 @@
         }
     ]
 }
+
+/*{
+    "version": "0.1.0",
+    "command": "\\makecfg.bat",
+    "showOutput":"always",
+    "isShellCommand": true,
+    "args": [
+        "${fileDirname}"
+    ]
+}*/
