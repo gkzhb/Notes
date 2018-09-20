@@ -9,8 +9,8 @@ int main()
 
     std::string name;
     std::cin >> name;
-    const std::string greeting = "Hello, " + name + "!";
-    const std::string spaces (greeting.size(), ' ');
+    const std::string greeting = "Hello, " + name + "! ";
+    const std::string spaces(greeting.size() + 1, ' ');
     const std::string second = "*" + spaces + "*";
     const std::string first(second.size(), '*');
     std::cout<<std::endl;

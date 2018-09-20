@@ -1,5 +1,5 @@
 {
-    "configurations": [
+    /*"configurations": [
         {
             "name": "Win32",
             "intelliSenseMode": "clang-x64",
@@ -37,5 +37,5 @@
             "cppStandard": "c++11"
         }
     ],
-    "version": 4
-}
+    "version": 4*/
+} 
