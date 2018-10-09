@@ -140,7 +140,7 @@ NOTES:
  *   Rating: 1
  */
 int bitAnd(int x, int y) {
-  return (~x) | y;
+  return ~((~x) | (~y));
 }
 /* 
  * getByte - Extract byte n from word x
@@ -151,15 +151,10 @@ int bitAnd(int x, int y) {
  *   Rating: 2
  */
 int getByte(int x, int n) {
-  
-
-
-
-
-
-
-  return 2;
-
+  n = n << 3;
+  x = x >> (n & 0x10);
+  x = x >> (n & 0x8);
+  return x & 0xff;
 }
 /* 
  * logicalShift - shift x to the right by n, using a logical shift
@@ -170,7 +165,11 @@ int getByte(int x, int n) {
  *   Rating: 3 
  */
 int logicalShift(int x, int n) {
-  return x >> n;
+  int sign = x & (0x1 << 0x1f), move;
+  x = (x ^ sign) >> n;
+  move = ~n;
+  sign = sign >> 0x1f & 0x1 << move;
+  return x ^ sign;
 }
 /*
  * bitCount - returns count of number of 1's in word
@@ -180,7 +179,15 @@ int logicalShift(int x, int n) {
  *   Rating: 4
  */
 int bitCount(int x) {
-  return 2;
+  int ans;
+  ans = x & 0x1 + (x & 0x2) >> 1 + (x & 0x4) >> 2 + (x & 0x8) >> 3 + (x & 0x10) >> 4 + (x & 0x20) >> 5 + (x & 0x40) >> 6 + (x & 0x80) >> 7;
+  x = x >> 8;
+  ans = ans + x & 0x1 + (x & 0x2) >> 1 + (x & 0x4) >> 2 + (x & 0x8) >> 3 + (x & 0x10) >> 4 + (x & 0x20) >> 5 + (x & 0x40) >> 6 + (x & 0x80) >> 7;
+  x = x >> 8;
+  ans = ans + x & 0x1 + (x & 0x2) >> 1 + (x & 0x4) >> 2 + (x & 0x8) >> 3 + (x & 0x10) >> 4 + (x & 0x20) >> 5 + (x & 0x40) >> 6 + (x & 0x80) >> 7;
+  x = x >> 8;
+  ans = ans + x & 0x1 + (x & 0x2) >> 1 + (x & 0x4) >> 2 + (x & 0x8) >> 3 + (x & 0x10) >> 4 + (x & 0x20) >> 5 + (x & 0x40) >> 6 + (x & 0x80) >> 7;
+  return ans;
 }
 /* 
  * bang - Compute !x without using !
@@ -190,7 +197,11 @@ int bitCount(int x) {
  *   Rating: 4 
  */
 int bang(int x) {
-  return 2;
+  int ans = (x >> 0x10) | x;
+  ans = ans | (ans >> 0x8);
+  ans = ans | (ans >> 0x4);
+  ans = ans | (ans >> 0x2);
+  return ((ans | ans >> 0x1) & 0x1) ^ 0x1;
 }
 /* 
  * tmin - return minimum two's complement integer 
@@ -199,7 +210,7 @@ int bang(int x) {
  *   Rating: 1
  */
 int tmin(void) {
-  return 2;
+  return 0x1 << 0x1f;
 }
 /* 
  * fitsBits - return 1 if x can be represented as an 
@@ -211,6 +222,10 @@ int tmin(void) {
  *   Rating: 2
  */
 int fitsBits(int x, int n) {
+  int sign = x >> 0x1f, tmp = 0x3, ans;
+  x = x << 1 >> n;
+
+
   return 2;
 }
 /* 
@@ -222,7 +237,11 @@ int fitsBits(int x, int n) {
  *   Rating: 2
  */
 int divpwr2(int x, int n) {
-    return 2;
+  int sign = x & (0x1 << 0x1f), t;
+  t = (sign >> 0x1f) & 0x1;
+  t = (t << 0x1) + t;
+  x = x + ((t << n) >> 0x2);
+  return x >> n;
 }
 /* 
  * negate - return -x 
@@ -232,7 +251,7 @@ int divpwr2(int x, int n) {
  *   Rating: 2
  */
 int negate(int x) {
-  return 2;
+  return ~x + 1;
 }
 /* 
  * isPositive - return 1 if x > 0, return 0 otherwise 
@@ -242,7 +261,8 @@ int negate(int x) {
  *   Rating: 3
  */
 int isPositive(int x) {
-  return 2;
+  int sign = (x >> 0x1f) & 0x1;
+  return (~x + 1 >> 0x1f) & !sign;
 }
 /* 
  * isLessOrEqual - if x <= y  then return 1, else return 0 
@@ -252,7 +272,12 @@ int isPositive(int x) {
  *   Rating: 3
  */
 int isLessOrEqual(int x, int y) {
-  return 2;
+  int sign1 = ((x ^ y) >> 0x1f) & 0x1, sign2 = (y >> 0x1f) & 0x1, sign3, ans;
+  // sign1: x y 同号为0 异号为1   sign2: y 的符号   sign3: ans = y - x 的符号
+  x = ~x + 1;
+  ans = x + y;
+  sign3 = (ans >> 0x1f) & 0x1;
+  return (sign1 & !sign2) | !(sign1 | sign3);
 }
 /*
  * ilog2 - return floor(log base 2 of x), where x > 0
@@ -276,7 +301,21 @@ int ilog2(int x) {
  *   Rating: 2
  */
 unsigned float_neg(unsigned uf) {
- return 2;
+  /* unsigned x = 0xff << 0x; */
+  unsigned flag = 0x0, i = 0x17, last = uf & 0x1, cp = uf;
+  // flag: 0表示为 NaN 1表示不是NaN
+  while (i)
+    {
+      if (uf & 0x1 != last)
+        flag = 0x1;
+      i = i - 1;
+      uf = uf >> 0x1;
+    }
+  if (((uf & 0xff) == 0xff) && flag)
+    flag = 0x0;
+  else
+    flag = 0x1;
+  return cp ^ (flag << 0x1f);
 }
 /* 
  * float_i2f - Return bit-level equivalent of expression (float) x
@@ -288,6 +327,7 @@ unsigned float_neg(unsigned uf) {
  *   Rating: 4
  */
 unsigned float_i2f(int x) {
+  unsigned ans = 0x0;
   return 2;
 }
 /* 
@@ -302,5 +342,24 @@ unsigned float_i2f(int x) {
  *   Rating: 4
  */
 unsigned float_twice(unsigned uf) {
-  return 2;
+  unsigned flag = 0x0, i = 0x17, last = uf & 0x1, cp = uf;
+  // flag: 0表示为 NaN 1表示不是NaN
+  unsigned x = (0xff | (0x1 << 8)) << 0x17, exp = x & uf;
+  if (!((uf >> 0x16) & 0x1) && !exp)
+  {
+    uf = (uf & ~x) << 0x1;
+    return exp | uf;
+  }
+  while (i)
+    {
+      if (uf & 0x1 != last)
+        flag = 0x1;
+      i = i - 1;
+      uf = uf >> 0x1;
+    }
+  if ((((uf & 0xff) == 0xff) && flag) || !((uf & 0xff) != 0x0 || flag || last))
+    flag = 0x0;
+  else
+    flag = 0x1;
+  return cp + (flag << 0x17);
 }
