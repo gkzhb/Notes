@@ -1,3 +1,4 @@
+// time limit exceeded
 #include <iostream>
 #include <vector>
 #include <string>
@@ -50,12 +51,10 @@ int kmp(string a)
 int main(void)
 {
 	string s;
-	char *a;
 	while (cin)
 	{
-		gets(a);
-		gets(a);
-		s = a;
+		cin >> s;
+		cin >> s;
 		kmp(s);
 	}
 

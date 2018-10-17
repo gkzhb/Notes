@@ -130,7 +130,6 @@ NOTES:
  *      the correct answers.
  */
 
-
 #endif
 /* 
  * bitAnd - x&y using only ~ and | 
@@ -139,7 +138,8 @@ NOTES:
  *   Max ops: 8
  *   Rating: 1
  */
-int bitAnd(int x, int y) {
+int bitAnd(int x, int y)
+{
   return ~((~x) | (~y));
 }
 /* 
@@ -150,11 +150,9 @@ int bitAnd(int x, int y) {
  *   Max ops: 6
  *   Rating: 2
  */
-int getByte(int x, int n) {
-  n = n << 3;
-  x = x >> (n & 0x10);
-  x = x >> (n & 0x8);
-  return x & 0xff;
+int getByte(int x, int n)
+{
+  return (x >> (n << 3)) & 0xff;
 }
 /* 
  * logicalShift - shift x to the right by n, using a logical shift
@@ -164,7 +162,8 @@ int getByte(int x, int n) {
  *   Max ops: 20
  *   Rating: 3 
  */
-int logicalShift(int x, int n) {
+int logicalShift(int x, int n)
+{
   int sign = x & (0x1 << 0x1f), move;
   x = (x ^ sign) >> n;
   move = ~n;
@@ -178,16 +177,35 @@ int logicalShift(int x, int n) {
  *   Max ops: 40
  *   Rating: 4
  */
-int bitCount(int x) {
-  int ans;
-  ans = x & 0x1 + (x & 0x2) >> 1 + (x & 0x4) >> 2 + (x & 0x8) >> 3 + (x & 0x10) >> 4 + (x & 0x20) >> 5 + (x & 0x40) >> 6 + (x & 0x80) >> 7;
-  x = x >> 8;
-  ans = ans + x & 0x1 + (x & 0x2) >> 1 + (x & 0x4) >> 2 + (x & 0x8) >> 3 + (x & 0x10) >> 4 + (x & 0x20) >> 5 + (x & 0x40) >> 6 + (x & 0x80) >> 7;
-  x = x >> 8;
-  ans = ans + x & 0x1 + (x & 0x2) >> 1 + (x & 0x4) >> 2 + (x & 0x8) >> 3 + (x & 0x10) >> 4 + (x & 0x20) >> 5 + (x & 0x40) >> 6 + (x & 0x80) >> 7;
-  x = x >> 8;
-  ans = ans + x & 0x1 + (x & 0x2) >> 1 + (x & 0x4) >> 2 + (x & 0x8) >> 3 + (x & 0x10) >> 4 + (x & 0x20) >> 5 + (x & 0x40) >> 6 + (x & 0x80) >> 7;
-  return ans;
+int bitCount(int x)
+{
+  int result;
+  //int mask1=(0x55)|(0x55<<8)|(0x55<<16)|(0x55<<24);
+  int tmp_mask1 = (0x55) | (0x55 << 8);
+  int mask1 = (tmp_mask1) | (tmp_mask1 << 16);
+  //int mask2=(0x33)|(0x33<<8)|(0x33<<16)|(0x33<<24);
+  int tmp_mask2 = (0x33) | (0x33 << 8);
+  int mask2 = (tmp_mask2) | (tmp_mask2 << 16);
+  //int mask3=(0x0f)|(0x0f<<8)|(0x0f<<16)|(0x0f<<24);
+  int tmp_mask3 = (0x0f) | (0x0f << 8);
+  int mask3 = (tmp_mask3) | (tmp_mask3 << 16);
+  int mask4 = (0xff) | (0xff << 16);
+  int mask5 = (0xff) | (0xff << 8);
+  //add every two bits
+  result = (x & mask1) + ((x >> 1) & mask1);
+  //add every four bits
+  result = (result & mask2) + ((result >> 2) & mask2);
+  //add every eight bits
+  //result=(result&mask3)+((result>>4)&mask3);
+  result = (result + (result >> 4)) & mask3;
+  //add every sixteen bits
+  //result=(result&mask4)+((result>>8)&mask4);
+  result = (result + (result >> 8)) & mask4;
+  //add every thirty two bits
+  //result=(result&mask5)+((result>>16)&mask5);
+  result = (result + (result >> 16)) & mask5;
+  return result;
+  // 参考博客：https://blog.csdn.net/lwfcgz/article/details/8515188?utm_source=copy
 }
 /* 
  * bang - Compute !x without using !
@@ -196,7 +214,8 @@ int bitCount(int x) {
  *   Max ops: 12
  *   Rating: 4 
  */
-int bang(int x) {
+int bang(int x)
+{
   int ans = (x >> 0x10) | x;
   ans = ans | (ans >> 0x8);
   ans = ans | (ans >> 0x4);
@@ -209,7 +228,8 @@ int bang(int x) {
  *   Max ops: 4
  *   Rating: 1
  */
-int tmin(void) {
+int tmin(void)
+{
   return 0x1 << 0x1f;
 }
 /* 
@@ -221,12 +241,11 @@ int tmin(void) {
  *   Max ops: 15
  *   Rating: 2
  */
-int fitsBits(int x, int n) {
-  int sign = x >> 0x1f, tmp = 0x3, ans;
-  x = x << 1 >> n;
-
-
-  return 2;
+int fitsBits(int x, int n)
+{
+  int shiftNumber = ~n + 33;
+  return !(x ^ ((x << shiftNumber) >> shiftNumber));
+  // 参考博客同上
 }
 /* 
  * divpwr2 - Compute x/(2^n), for 0 <= n <= 30
@@ -236,12 +255,24 @@ int fitsBits(int x, int n) {
  *   Max ops: 15
  *   Rating: 2
  */
-int divpwr2(int x, int n) {
-  int sign = x & (0x1 << 0x1f), t;
-  t = (sign >> 0x1f) & 0x1;
-  t = (t << 0x1) + t;
-  x = x + ((t << n) >> 0x2);
+int divpwr2(int x, int n)
+{
+  /* 原错误代码
+  int sign = x & (0x1 << 0x1f), t, m = ~n;
+  t = ~0x0 ^ (0x1 << 0x1f);
+  t = t >> m;
+  sign = (~sign >> 0x1a) & 0x20;
+  t = t >> sign;
+  x = x + t;
   return x >> n;
+  */
+  //all zeros or all ones
+  int signx = x >> 31;
+  //int mask=(1<<n)+(-1);
+  int mask = (1 << n) + (~0);
+  int bias = signx & mask;
+  return (x + bias) >> n;
+  // 参考博客同上
 }
 /* 
  * negate - return -x 
@@ -250,7 +281,8 @@ int divpwr2(int x, int n) {
  *   Max ops: 5
  *   Rating: 2
  */
-int negate(int x) {
+int negate(int x)
+{
   return ~x + 1;
 }
 /* 
@@ -260,7 +292,8 @@ int negate(int x) {
  *   Max ops: 8
  *   Rating: 3
  */
-int isPositive(int x) {
+int isPositive(int x)
+{
   int sign = (x >> 0x1f) & 0x1;
   return (~x + 1 >> 0x1f) & !sign;
 }
@@ -271,7 +304,8 @@ int isPositive(int x) {
  *   Max ops: 24
  *   Rating: 3
  */
-int isLessOrEqual(int x, int y) {
+int isLessOrEqual(int x, int y)
+{
   int sign1 = ((x ^ y) >> 0x1f) & 0x1, sign2 = (y >> 0x1f) & 0x1, sign3, ans;
   // sign1: x y 同号为0 异号为1   sign2: y 的符号   sign3: ans = y - x 的符号
   x = ~x + 1;
@@ -286,8 +320,20 @@ int isLessOrEqual(int x, int y) {
  *   Max ops: 90
  *   Rating: 4
  */
-int ilog2(int x) {
-  return 2;
+int ilog2(int x)
+{
+  int bitsNumber = 0;
+  // binary search process
+  bitsNumber = (!!(x >> 16)) << 4;
+  bitsNumber = bitsNumber + ((!!(x >> (bitsNumber + 8))) << 3);
+  bitsNumber = bitsNumber + ((!!(x >> (bitsNumber + 4))) << 2);
+  bitsNumber = bitsNumber + ((!!(x >> (bitsNumber + 2))) << 1);
+  bitsNumber = bitsNumber + (!!(x >> (bitsNumber + 1)));
+  // for non zero bitsNumber, it should add 0
+  // for zero bitsNumber, it should subtract 1
+  bitsNumber = bitsNumber + (!!bitsNumber) + (~0) + (!(1 ^ x));
+  return bitsNumber;
+  // 参考博客同上
 }
 /* 
  * float_neg - Return bit-level equivalent of expression -f for
@@ -300,17 +346,18 @@ int ilog2(int x) {
  *   Max ops: 10
  *   Rating: 2
  */
-unsigned float_neg(unsigned uf) {
+unsigned float_neg(unsigned uf)
+{
   /* unsigned x = 0xff << 0x; */
   unsigned flag = 0x0, i = 0x17, last = uf & 0x1, cp = uf;
   // flag: 0表示为 NaN 1表示不是NaN
   while (i)
-    {
-      if (uf & 0x1 != last)
-        flag = 0x1;
-      i = i - 1;
-      uf = uf >> 0x1;
-    }
+  {
+    if (uf & 0x1 != last)
+      flag = 0x1;
+    i = i - 1;
+    uf = uf >> 0x1;
+  }
   if (((uf & 0xff) == 0xff) && flag)
     flag = 0x0;
   else
@@ -326,9 +373,65 @@ unsigned float_neg(unsigned uf) {
  *   Max ops: 30
  *   Rating: 4
  */
-unsigned float_i2f(int x) {
-  unsigned ans = 0x0;
-  return 2;
+unsigned float_i2f(int x)
+{
+  /* 原错误代码
+  if (!x)
+    return x;
+  unsigned ans = 0, t = 0, sign = 0, exp, cp, mask = (0x7f << 0x10) | (0xff << 0x8) | 0xff, tmp;
+  if (x < 0)
+  {
+    ans = 0x1 << 0x1f;
+    x = ~x + 1;
+  }
+  cp = x;
+  while (x && t < 32)
+  {
+    t = t + 1;
+    x = x >> 1;
+  }
+  exp = t;
+  if (t < 24)
+    tmp = cp << (24 - exp);
+  else
+    tmp = cp >> (exp - 24);
+  tmp = tmp & mask;
+  exp = (exp + 126) << 0x17;
+  return ans | exp | tmp;
+  */
+
+  unsigned shiftLeft = 0;
+  unsigned afterShift, tmp, flag;
+  unsigned absX = x;
+  unsigned sign = 0;
+  //special case
+  if (x == 0)
+    return 0;
+  //if x < 0, sign = 1000...,abs_x = -x
+  if (x < 0)
+  {
+    sign = 0x80000000;
+    absX = -x;
+  }
+  afterShift = absX;
+  //count shift_left and after_shift
+  while (1)
+  {
+    tmp = afterShift;
+    afterShift <<= 1;
+    shiftLeft++;
+    if (tmp & 0x80000000)
+      break;
+  }
+  if ((afterShift & 0x01ff) > 0x0100)
+    flag = 1;
+  else if ((afterShift & 0x03ff) == 0x0300)
+    flag = 1;
+  else
+    flag = 0;
+
+  return sign + (afterShift >> 9) + ((159 - shiftLeft) << 23) + flag;
+  // 参考博客同上
 }
 /* 
  * float_twice - Return bit-level equivalent of expression 2*f for
@@ -341,25 +444,23 @@ unsigned float_i2f(int x) {
  *   Max ops: 30
  *   Rating: 4
  */
-unsigned float_twice(unsigned uf) {
-  unsigned flag = 0x0, i = 0x17, last = uf & 0x1, cp = uf;
+unsigned float_twice(unsigned uf)
+{
+  unsigned /*flag = 0x0, i = 0x17, last = uf & 0x1, */cp = uf;
   // flag: 0表示为 NaN 1表示不是NaN
-  unsigned x = (0xff | (0x1 << 8)) << 0x17, exp = x & uf;
-  if (!((uf >> 0x16) & 0x1) && !exp)
+  unsigned x = (0xff | (0x1 << 8)) << 0x16, sign = uf & (0x1 << 0x1f), exp = x & uf;
+  if (exp == 0 | exp == (0x1 << 0x16))
+    return ((uf << 0x1) | sign);
+  /*while (i)
   {
-    uf = (uf & ~x) << 0x1;
-    return exp | uf;
-  }
-  while (i)
-    {
-      if (uf & 0x1 != last)
-        flag = 0x1;
-      i = i - 1;
-      uf = uf >> 0x1;
-    }
-  if ((((uf & 0xff) == 0xff) && flag) || !((uf & 0xff) != 0x0 || flag || last))
-    flag = 0x0;
+    if ((uf & 0x1) != last)
+      flag = 0x1;
+    i = i - 1;
+    uf = uf >> 0x1;
+    } */
+  uf = uf >> 0x17;
+  if ((uf & 0xff) == 0xff)
+    return cp;
   else
-    flag = 0x1;
-  return cp + (flag << 0x17);
+    return cp + (0x1 << 0x17);
 }

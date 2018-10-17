@@ -13,15 +13,29 @@
 				"-std=c++11",
 				"-lm",
 				"${file}",
-				"-o" 
+				"-o"
 			],
 			"windows": {
+				"command": "D:",
 				"args": [
-					"${fileDirname}/${fileBasenameNoExtension}.exe"
+					";", "cd", "D:\\MinGW64\\bin", ";", ".\\g++.exe",
+					"-g",
+					"-Wall",
+					"-std=c++11",
+					"-lm",
+					"${file}",
+					"-o",
+					"${fileDirname}\\${fileBasenameNoExtension}.exe"
 				]
 			},
 			"linux": {
 				"args": [
+					"-g",
+					"-Wall",
+					"-std=c++11",
+					"-lm",
+					"${file}",
+					"-o",
 					"${fileDirname}/${fileBasenameNoExtension}.out"
 				]
 			},
@@ -30,11 +44,12 @@
 					"${fileDirname}/${fileBasenameNoExtension}.o"
 				]
 			},
+			"type": "shell",
 			"presentation": {
 				"echo": true,  // 控制执行的命令是否输出
 				"reveal": "always",  // 控制内置终端面板是否跳出到前端
-				"focus": true,  // 焦点是否跳到面板
-				//"panel": "shared",
+				"focus": false,  // 焦点是否跳到面板
+				"panel": "shared"
 				//"showReuseMessage": true
 			},
 			"problemMatcher": {
@@ -53,7 +68,7 @@
 				"kind": "build",
 				"isDefault": true
 			}
-			
+
 		},
 
 		{

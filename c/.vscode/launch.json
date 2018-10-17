@@ -2,6 +2,7 @@
 {
     "version": "0.2.0",
     "configurations": [
+
         {
             "name": "(gdb) Launch", // 配置名称，将会在启动配置的下拉菜单中显示
             "type": "cppdbg", // 配置类型，这里只能为cppdbg
@@ -10,7 +11,8 @@
                 "program": "${fileDirname}/${fileBasenameNoExtension}.out"   // 将要进行调试的程序的路径
             },
             "windows": {
-                "program": "${fileDirname}/${fileBasenameNoExtension}.exe"
+                "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+                "miDebuggerPath": "D:/Program Files/devcpp/MinGW64/bin/gdb.exe" // 调试器路径。
             },
             "osx": {
                 "program": "${fileDirname}/${fileBasenameNoExtension}.o"

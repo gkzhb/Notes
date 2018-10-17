@@ -1,0 +1,4 @@
+﻿  shortestPalindrome.cpp
+d:\code\vs\datastructure\hw3_1\shortestpalindrome.cpp(11): error C3646: “shortestPalindrome”: 未知重写说明符
+d:\code\vs\datastructure\hw3_1\shortestpalindrome.cpp(11): error C2059: 语法错误:“(”
+d:\code\vs\datastructure\hw3_1\shortestpalindrome.cpp(11): error C2334: “{”的前面有意外标记；跳过明显的函数体
