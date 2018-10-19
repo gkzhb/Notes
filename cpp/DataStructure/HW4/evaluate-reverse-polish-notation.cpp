@@ -1,4 +1,8 @@
-#define LOCAL
+// LeetCode, Evaluate Reverse Polish Notation
+// 逐个处理 vector 中每个字符串, 若有数字则转化为 int 存入栈中, 
+// 若是操作符, 则将栈顶两个元素进行相应操作, 对栈进行相应的处理
+
+// #define LOCAL
 #ifdef LOCAL
 #include <iostream>
 #include <cctype>
@@ -10,7 +14,7 @@ using namespace std;
 
 class Solution {
 public:
-	int stoInt(const string & s)
+	int stoInt(const string & s)	// 将 string 转化为 int 类型
 	{
 		int ans = 0, flag = 1;
 		string::const_iterator i = s.begin();
@@ -27,7 +31,7 @@ public:
 		return ans * flag;
 	}
 
-	int cal(int a, int b, char op)
+	int cal(int a, int b, char op)		// 计算 a op b 的值
 	{
 		switch(op)
 		{
@@ -46,7 +50,7 @@ public:
 		int tmp;
 		for (vector<string>::const_iterator i = tokens.begin(); i != tokens.end(); i++)
 		{
-			if ((*i).size() > 1 || isdigit((*i)[0]))
+			if (i->size() > 1 || isdigit((*i)[0]))
 			{
 				tmp = stoInt(*i);
 				a.push_back(tmp);

@@ -1,3 +1,5 @@
+// LeetCode, Simplify Path, none
+
 #define LOCAL
 #ifdef LOCAL
 #include <iostream>

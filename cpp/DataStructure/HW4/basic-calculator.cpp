@@ -1,4 +1,11 @@
-#define LOCAL
+// LeetCode, Basic Calculator,
+// 此题中只有加减与括号, 且没有负数, 所以从头到尾只要操作符两端数字已经算出来就可直接进行运算
+// 从头到尾遍历字符串, 若为数字, 则用 while 循环将完整数字读取出来, 
+// 并判断 ops 栈是否为空以及栈顶是否为左括号, 非空且非左括号则将数据进行运算;
+// 若为 + - 操作符 或 左括号, 直接压栈;
+// 若为后括号, 说明括号内数字已经计算出来, 将栈中的左括号出栈, 同上面读入数字进行相同判断决定是否进行计算
+
+// #define LOCAL
 #ifdef LOCAL
 #include <iostream>
 #include <cctype>
@@ -10,7 +17,7 @@ using namespace std;
 
 class Solution {
 public:
-	int cal(int a, int b, char op)
+	int cal(int a, int b, char op)	// calculate "a op b"
 	{
 		switch(op)
 		{

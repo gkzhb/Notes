@@ -1,4 +1,8 @@
-#define LOCAL
+// LeetCode, Implement Queue using Stacks
+// 两个栈, 一个只负责压栈, 另一个只负责出栈
+// 若负责出栈的栈为空, 且要进行出栈操作, 则将压栈的栈中元素倒到出栈的栈中
+
+// #define LOCAL
 #ifdef LOCAL
 #include <vector>
 
