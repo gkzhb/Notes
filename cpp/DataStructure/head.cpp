@@ -28,3 +28,13 @@ int main(){
     return 0;
 }
 #endif
+
+
+/*
+
+static const int _ = []() {
+  ios::sync_with_stdio(false);
+  cin.tie(NULL);
+  return 0;
+}();
+*/
