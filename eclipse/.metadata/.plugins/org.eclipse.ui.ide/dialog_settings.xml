@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="/mnt/data/code/eclipse/spring-boot-sample-data-jdbc"/>
+		<item value="/home/zhb/code/eclipse/demo"/>
 		<item value="D:\code\eclipse\NetResourceSize"/>
 	</list>
 	<section name="NewWizardAction">

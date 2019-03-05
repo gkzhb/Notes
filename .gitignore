@@ -1,0 +1,16 @@
+.vs
+target
+bin
+*.cache
+*.runs
+*.sim
+*.hw
+*.ip_user_files
+
+*~
+*.swp
+
+*.o
+*.out
+*.exe
+

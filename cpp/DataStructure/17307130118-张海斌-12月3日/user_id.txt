@@ -1,3 +1,0 @@
-Online Judge: 17307130118
-SPOJ: gkzhb
-LeetCode: zhb896579388

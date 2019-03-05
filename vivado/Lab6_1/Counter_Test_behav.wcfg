@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Counter_Test_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="Counter_Test" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="354000003fs"></ZoomEndTime>
+      <Cursor1Time time="116000000fs"></Cursor1Time>
+   </zoom_setting>
+   <WVObjectSize size="14" />
+   <wvobject db_ref_id="1" type="array" fp_name="/Counter_Test/LED">
+      <obj_property name="ElementShortName">LED[4:0]</obj_property>
+      <obj_property name="ObjectShortName">LED[4:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/Counter_Test/clk2">
+      <obj_property name="ElementShortName">clk2</obj_property>
+      <obj_property name="ObjectShortName">clk2</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/Counter_Test/en">
+      <obj_property name="ElementShortName">en</obj_property>
+      <obj_property name="ObjectShortName">en</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/Counter_Test/clr">
+      <obj_property name="ElementShortName">clr</obj_property>
+      <obj_property name="ObjectShortName">clr</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/Counter_Test/zero">
+      <obj_property name="ElementShortName">zero</obj_property>
+      <obj_property name="ObjectShortName">zero</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/Counter_Test/test/nK">
+      <obj_property name="ElementShortName">nK[3:0]</obj_property>
+      <obj_property name="ObjectShortName">nK[3:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/Counter_Test/test/nJ">
+      <obj_property name="ElementShortName">nJ[3:0]</obj_property>
+      <obj_property name="ObjectShortName">nJ[3:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/Counter_Test/test/nQ">
+      <obj_property name="ElementShortName">nQ[3:0]</obj_property>
+      <obj_property name="ObjectShortName">nQ[3:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/Counter_Test/test/cl">
+      <obj_property name="ElementShortName">cl</obj_property>
+      <obj_property name="ObjectShortName">cl</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/Counter_Test/test/len">
+      <obj_property name="ElementShortName">len</obj_property>
+      <obj_property name="ObjectShortName">len</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/Counter_Test/load">
+      <obj_property name="ElementShortName">load</obj_property>
+      <obj_property name="ObjectShortName">load</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/Counter_Test/clk1">
+      <obj_property name="ElementShortName">clk1</obj_property>
+      <obj_property name="ObjectShortName">clk1</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/Counter_Test/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/Counter_Test/clk3">
+      <obj_property name="ElementShortName">clk3</obj_property>
+      <obj_property name="ObjectShortName">clk3</obj_property>
+   </wvobject>
+</wave_config>

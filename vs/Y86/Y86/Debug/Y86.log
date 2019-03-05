@@ -1,0 +1,14 @@
+﻿  main.cpp
+d:\code\vs\y86\y86\main.cpp(36): warning C4018: “<”: 有符号/无符号不匹配
+  Pipeline.cpp
+d:\code\vs\y86\y86\pipeline.cpp(48): warning C4244: “参数”: 从“__int64”转换到“const unsigned int”，可能丢失数据
+d:\code\vs\y86\y86\pipeline.cpp(64): warning C4244: “参数”: 从“__int64”转换到“const unsigned int”，可能丢失数据
+d:\code\vs\y86\y86\pipeline.cpp(350): warning C4244: “参数”: 从“__int64”转换到“const unsigned int”，可能丢失数据
+d:\code\vs\y86\y86\pipeline.cpp(351): warning C4244: “参数”: 从“__int64”转换到“const unsigned int”，可能丢失数据
+d:\code\vs\y86\y86\pipeline.cpp(365): warning C4244: “参数”: 从“__int64”转换到“const unsigned int”，可能丢失数据
+d:\code\vs\y86\y86\pipeline.cpp(373): warning C4244: “参数”: 从“__int64”转换到“const unsigned int”，可能丢失数据
+  preprocess.cpp
+d:\code\vs\y86\y86\preprocess.cpp(71): warning C4244: “参数”: 从“__int64”转换到“const unsigned int”，可能丢失数据
+d:\code\vs\y86\y86\preprocess.cpp(98): warning C4244: “参数”: 从“__int64”转换到“const unsigned int”，可能丢失数据
+  正在生成代码...
+  Y86.vcxproj -> D:\code\vs\Y86\Debug\Y86.exe
