@@ -9,4 +9,7 @@ module AddSub(
 
 	always @(*)
 		case (Sign)
-
+			1'b0: S = A + B;
+			1'b1: S = A - B;
+		endcase
+endmodule

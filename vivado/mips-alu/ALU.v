@@ -5,12 +5,12 @@ module ALU(
 	input [31:0] B,
 	input [2:0] Alucont,
 	output reg [31:0] Result,
-	output reg Zero
+	output Zero
 	);
 
 	wire [31:0] f;
 
-	AddSub(.A(A), .B(B), .Sign(Alucont[2]), .S(f));
+	AddSub addsub(.A(A), .B(B), .Sign(Alucont[2]), .S(f));
 	assign Zero = ~(| Result);
 
 	always @(*)
@@ -22,7 +22,7 @@ module ALU(
 			2'b100: Result = A & (~B);
 			2'b101: Result = A | (~B);
 			2'b110: Result = f;
-			2'b111: Result = {31{1'b0}, f[31]};
+			2'b111: Result = {31'b000_0000_0000_0000_0000_0000_0000_0000, f[31]};
 			default: Result = 31'b0;
 		endcase
 	end
