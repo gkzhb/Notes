@@ -32,5 +32,4 @@ endmodule
 // 显示测试工具 单独做一个模块
 // 所有的 case 一定要加 default
 // 所有的 if 一定要加 else
-// 小端法
 // DDL: 第五周

@@ -9,7 +9,7 @@ module aludec(
 		case(AluOp)
 			2'b00: AluCtl <= 3'b
 			// TODO
-			default: case(funct)	// R-type
+			default: case(Funct)	// R-type
 				6'b1000_00: AluCtl <= 3'b
 				default: AluCtl <= 3'bxxx;
 			  endcase
