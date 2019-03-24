@@ -13,7 +13,7 @@ module controller(
 	wire [2:0] AluOp;
 	wire Branch;
 
-	maindec md(Op, MemToReg, MemWrite, Branch, AluSrc, RegDst, RegWrite, Jummp, AluOp, Bne, ExtOp);
+	maindec md(Op, MemToReg, MemWrite, Branch, AluSrc, RegDst, RegWrite, Jump, AluOp, Bne, ExtOp);
 	aludec ad(Funct, AluOp, AluCtl);
 
 	assign PCSrc = Branch & (Bne ^ Zero);

@@ -13,7 +13,7 @@ module datapath(
 
 wire [4:0] WriteReg;
 wire [31:0] PCNext, PCNextBr, PCPlus4, PCBranch;
-wire [31:0] SignImm, SignImmSh;
+wire [31:0] SignImm, SignImmsh;
 wire [31:0] SrcA, SrcB;
 wire [31:0] Result;
 
