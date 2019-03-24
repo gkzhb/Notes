@@ -5,9 +5,9 @@ module regfile(
 	input WE3,
 	input [4:0] RA1, RA2, RA3,
 	input [31:0] WD3,
-	output reg [31:0] RD1, RD2);
+	output [31:0] RD1, RD2);
 
-	reg [31:0] rf [2**5-1:0];
+	reg [31:0] rf [31:0];
 
 	always @(posedge CLK)
 		if (WE3)

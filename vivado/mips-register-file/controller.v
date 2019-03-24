@@ -7,13 +7,14 @@ module controller(
 	output PCSrc, AluSrc,
 	output RegDst, RegWrite,
 	output Jump,
-	output [2:0] AluCtl);
+	output [2:0] AluCtl,
+	output ExtOp);
 
-	wire [1:0] AluOp;
+	wire [2:0] AluOp;
 	wire Branch;
 
-	maindec md(Op, MemToReg, MemWrite, Branch, AluSrc, RegDst, RegWrite, Jummp, AluOp);
+	maindec md(Op, MemToReg, MemWrite, Branch, AluSrc, RegDst, RegWrite, Jummp, AluOp, Bne, ExtOp);
 	aludec ad(Funct, AluOp, AluCtl);
 
-	assign PCSrc = Branch & Zero;
+	assign PCSrc = Branch & (Bne ^ Zero);
 endmodule
