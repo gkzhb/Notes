@@ -241,6 +241,7 @@
       </Config>
     </FileSet>
     <FileSet Name="cpu" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/cpu">
+      <Filter Type="Srcs"/>
       <File Path="$PSRCDIR/cpu/new/cputest.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>

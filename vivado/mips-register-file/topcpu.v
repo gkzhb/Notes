@@ -19,7 +19,7 @@ module topcpu(
 	assign LED = PC[19:4];
 	
 	top topmips(clk1hz, SW[7], out, addr, mw, ReadReg, ReadMem, RegData, MemData, PC);
-	display displaydata(SW[0], SW[6:1], RegData, MemData, clk190x4, ReadReg, ReadMem, {CG, CF, CE, CD, CC, CB, CA}, AN, DP);
+	display displaydata(SW[0], SW[6:1], RegData, MemData, clk190x4, SW[7], ReadReg, ReadMem, {CG, CF, CE, CD, CC, CB, CA}, AN[7:0], DP);
 	clkdiv clocker(CLK100MHZ, SW[7], clk190hz, clk190x4, clk1hz);
 
 endmodule
