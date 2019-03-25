@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="cputest_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="cputest" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="1326000001fs"></ZoomEndTime>
+      <Cursor1Time time="244000000fs"></Cursor1Time>
+   </zoom_setting>
+   <WVObjectSize size="27" />
+   <wvobject db_ref_id="1" type="logic" fp_name="/cputest/CLK100MHZ">
+      <obj_property name="ElementShortName">CLK100MHZ</obj_property>
+      <obj_property name="ObjectShortName">CLK100MHZ</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/cputest/SW">
+      <obj_property name="ElementShortName">SW[7:0]</obj_property>
+      <obj_property name="ObjectShortName">SW[7:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/cputest/CG">
+      <obj_property name="ElementShortName">CG</obj_property>
+      <obj_property name="ObjectShortName">CG</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/cputest/CF">
+      <obj_property name="ElementShortName">CF</obj_property>
+      <obj_property name="ObjectShortName">CF</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/cputest/CE">
+      <obj_property name="ElementShortName">CE</obj_property>
+      <obj_property name="ObjectShortName">CE</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/cputest/CD">
+      <obj_property name="ElementShortName">CD</obj_property>
+      <obj_property name="ObjectShortName">CD</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/cputest/CC">
+      <obj_property name="ElementShortName">CC</obj_property>
+      <obj_property name="ObjectShortName">CC</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/cputest/CB">
+      <obj_property name="ElementShortName">CB</obj_property>
+      <obj_property name="ObjectShortName">CB</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/cputest/CA">
+      <obj_property name="ElementShortName">CA</obj_property>
+      <obj_property name="ObjectShortName">CA</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/cputest/AN">
+      <obj_property name="ElementShortName">AN[7:0]</obj_property>
+      <obj_property name="ObjectShortName">AN[7:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/cputest/DP">
+      <obj_property name="ElementShortName">DP</obj_property>
+      <obj_property name="ObjectShortName">DP</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/cputest/LED">
+      <obj_property name="ElementShortName">LED[15:0]</obj_property>
+      <obj_property name="ObjectShortName">LED[15:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/cputest/out">
+      <obj_property name="ElementShortName">out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">out[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/cputest/addr">
+      <obj_property name="ElementShortName">addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/cputest/PC">
+      <obj_property name="ElementShortName">PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/cputest/mw">
+      <obj_property name="ElementShortName">mw</obj_property>
+      <obj_property name="ObjectShortName">mw</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/cputest/ReadReg">
+      <obj_property name="ElementShortName">ReadReg[4:0]</obj_property>
+      <obj_property name="ObjectShortName">ReadReg[4:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/cputest/ReadMem">
+      <obj_property name="ElementShortName">ReadMem[5:0]</obj_property>
+      <obj_property name="ObjectShortName">ReadMem[5:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/cputest/RegData">
+      <obj_property name="ElementShortName">RegData[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RegData[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/cputest/MemData">
+      <obj_property name="ElementShortName">MemData[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MemData[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/cputest/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/cputest/clk190hz">
+      <obj_property name="ElementShortName">clk190hz</obj_property>
+      <obj_property name="ObjectShortName">clk190hz</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/cputest/clk48hz">
+      <obj_property name="ElementShortName">clk48hz</obj_property>
+      <obj_property name="ObjectShortName">clk48hz</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/cputest/clk1hz">
+      <obj_property name="ElementShortName">clk1hz</obj_property>
+      <obj_property name="ObjectShortName">clk1hz</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/cputest/displaydata/a2g">
+      <obj_property name="ElementShortName">a2g[6:0]</obj_property>
+      <obj_property name="ObjectShortName">a2g[6:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/cputest/displaydata/Data">
+      <obj_property name="ElementShortName">Data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Data[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/cputest/displaydata/seg/clkdiv">
+      <obj_property name="ElementShortName">clkdiv[2:0]</obj_property>
+      <obj_property name="ObjectShortName">clkdiv[2:0]</obj_property>
+   </wvobject>
+</wave_config>
