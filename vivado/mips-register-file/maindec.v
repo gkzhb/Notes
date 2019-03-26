@@ -7,10 +7,11 @@ module maindec(
 	output RegDst, RegWrite,
 	output Jump,
 	output [2:0] AluOp,
-	output Bne, ExtOp);
+	output Bne, ExtOp, RType);
 
-	reg [12:0] ctls;
+	reg [11:0] ctls;
 	assign {Bne, ExtOp, RegWrite, RegDst, AluSrc, Branch, MemWrite, MemToReg, Jump, AluOp} = ctls;
+	assign RType = ~(|Op);
 
 	always @(*)
 		case(Op)

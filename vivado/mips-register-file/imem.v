@@ -7,8 +7,8 @@ module imem(
 
 	reg [31:0] RAM[63:0];
 
-//	initial
-//		$readmemh("/home/zhb/vivado/mips-register-file/memfile.dat", RAM);
+	// initial
+		// $readmemh("/home/zhb/vivado/mips-register-file/memfile.dat", RAM);
 
 	always @(*)
 		case (A)
