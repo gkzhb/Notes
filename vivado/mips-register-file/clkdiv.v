@@ -27,6 +27,7 @@ module clkdiv(
     output clk48,
     output clk1_4hz
     );
+// 时钟降频
     reg [27:0]q;
     always@(posedge mclk)
     begin

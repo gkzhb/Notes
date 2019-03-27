@@ -8,7 +8,7 @@ module topcpu(
     output DP,
 	output [15:0] LED
 );
-
+// mips 上板子的顶层文件
 	wire [31:0] out, addr, PC;
 	wire mw;
 	wire [4:0] ReadReg;

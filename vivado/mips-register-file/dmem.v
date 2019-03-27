@@ -6,7 +6,7 @@ module dmem(
 	output [31:0] RD,
 	input [5:0] ReadAddr,
 	output [31:0] Data);
-// Data Memory ???????????????
+// Data Memory
 
 	reg [31:0] RAM[63:0];
 	assign RD = RAM[A[31:2]];
