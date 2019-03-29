@@ -25,6 +25,7 @@ module datapath(
 	sl2 immsh(SignImm[31:0], SignImmsh[31:0]);
 	adder PCadd2(PCPlus4[31:0], SignImmsh[31:0], PCBranch[31:0]);
 	mux2 #(32) PCbrmux(PCPlus4[31:0], PCBranch[31:0], PCSrc, PCNextBr[31:0]);
+	mux2 #(32) PCmux(PCNextBr[31:0], {PCPlus4[31:28], Instr[25:0], 2'b00}, Jump, PCNext[31:0]);
 
 	// regfile
 	regfile rf(CLK, RegWrite, Instr[25:21], Instr[20:16], WriteReg[4:0], Result[31:0], SrcA[31:0], WriteData[31:0], ReadReg[4:0], RegData[31:0]);
