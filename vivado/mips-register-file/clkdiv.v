@@ -7,6 +7,7 @@ module clkdiv(
     output clk2,
     output clk3
     );
+// 时钟降频
     reg [27:0]q;
     always@(posedge mclk)
     begin

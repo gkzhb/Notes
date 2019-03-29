@@ -28,7 +28,7 @@ module async7seg(
     output reg [7:0] an,
     output dp
     );
-    
+// 七段数码管显示 32 位数据
     wire [2:0] s;
     reg [3:0] digit;
     wire [7:0] aen;

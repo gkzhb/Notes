@@ -48,7 +48,7 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/flopr.v">
+      <File Path="$PPRDIR/maindec.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -56,6 +56,13 @@
         </FileInfo>
       </File>
       <File Path="$PPRDIR/ext.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/aludec.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -76,14 +83,7 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/maindec.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/aludec.v">
+      <File Path="$PPRDIR/flopr.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -111,14 +111,14 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/imem.v">
+      <File Path="$PPRDIR/mips.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/async7seg.v">
+      <File Path="$PPRDIR/imem.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -132,7 +132,7 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/mips.v">
+      <File Path="$PPRDIR/async7seg.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -167,10 +167,25 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PPRDIR/toppc.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/topalu.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="topcpu"/>
-        <Option Name="TopAutoSet" Val="TRUE"/>
       </Config>
     </FileSet>
     <FileSet Name="constrs_1" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
