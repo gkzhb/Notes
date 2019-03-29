@@ -10,12 +10,12 @@ module controller(
 	output [2:0] AluCtl,
 	output ExtOp);
 
-	wire [2:0] AluOp1, AluOp2;
+	wire [2:0] AluOp0, AluOp1;
 	wire Branch, RType;
 
-	maindec md(Op, MemToReg, MemWrite, Branch, AluSrc, RegDst, RegWrite, Jump, AluOp1, Bne, ExtOp, RType);
-	aludec ad(Funct, AluOp2);
-	mux2 #(3) muxaluop(AluOp1, AluOp2, RType, AluCtl);
+	maindec md(Op[5:0], MemToReg, MemWrite, Branch, AluSrc, RegDst, RegWrite, Jump, AluOp0[2:0], Bne, ExtOp, RType);
+	aludec ad(Funct[5:0], AluOp1[2:0]);
+	mux2 #(3) muxaluop(AluOp0[2:0], AluOp1[2:0], RType, AluCtl[2:0]);
 
 	assign PCSrc = Branch & (Bne ^ Zero);
 endmodule
