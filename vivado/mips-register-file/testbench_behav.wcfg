@@ -12,10 +12,10 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="121490500fs"></ZoomEndTime>
-      <Cursor1Time time="16987000fs"></Cursor1Time>
+      <ZoomEndTime time="158600001fs"></ZoomEndTime>
+      <Cursor1Time time="127100000fs"></Cursor1Time>
    </zoom_setting>
-   <WVObjectSize size="26" />
+   <WVObjectSize size="12" />
    <wvobject db_ref_id="1" type="logic" fp_name="/testbench/CLK">
       <obj_property name="ElementShortName">CLK</obj_property>
       <obj_property name="ObjectShortName">CLK</obj_property>
@@ -43,7 +43,6 @@
    <wvobject db_ref_id="1" type="array" fp_name="/testbench/dut/mipscpu/c/md/ctls">
       <obj_property name="ElementShortName">ctls[11:0]</obj_property>
       <obj_property name="ObjectShortName">ctls[11:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject db_ref_id="1" type="array" fp_name="/testbench/dut/mipscpu/dp/rf/rf">
       <obj_property name="ElementShortName">rf[31:0][31:0]</obj_property>
@@ -65,61 +64,5 @@
    <wvobject db_ref_id="1" type="array" fp_name="/testbench/dut/mipscpu/dp/alu/Result">
       <obj_property name="ElementShortName">Result[31:0]</obj_property>
       <obj_property name="ObjectShortName">Result[31:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/testbench/dut/mipscpu/dp/rf/RD2">
-      <obj_property name="ElementShortName">RD2[31:0]</obj_property>
-      <obj_property name="ObjectShortName">RD2[31:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/testbench/dut/mipscpu/dp/rf/RA2">
-      <obj_property name="ElementShortName">RA2[4:0]</obj_property>
-      <obj_property name="ObjectShortName">RA2[4:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/testbench/dut/mipscpu/dp/rf/RA1">
-      <obj_property name="ElementShortName">RA1[4:0]</obj_property>
-      <obj_property name="ObjectShortName">RA1[4:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/testbench/dut/mipscpu/dp/rf/RA3">
-      <obj_property name="ElementShortName">RA3[4:0]</obj_property>
-      <obj_property name="ObjectShortName">RA3[4:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/testbench/dut/mipscpu/dp/PCbrmux/D0">
-      <obj_property name="ElementShortName">D0[31:0]</obj_property>
-      <obj_property name="ObjectShortName">D0[31:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/testbench/dut/mipscpu/dp/PCbrmux/D1">
-      <obj_property name="ElementShortName">D1[31:0]</obj_property>
-      <obj_property name="ObjectShortName">D1[31:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/testbench/dut/mipscpu/dp/PCbrmux/Y">
-      <obj_property name="ElementShortName">Y[31:0]</obj_property>
-      <obj_property name="ObjectShortName">Y[31:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/testbench/dut/mipscpu/Instr">
-      <obj_property name="ElementShortName">Instr[31:0]</obj_property>
-      <obj_property name="ObjectShortName">Instr[31:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/testbench/dut/mipscpu/dp/PCreg/d">
-      <obj_property name="ElementShortName">d[31:0]</obj_property>
-      <obj_property name="ObjectShortName">d[31:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/testbench/dut/mipscpu/dp/PCadd1/A">
-      <obj_property name="ElementShortName">A[31:0]</obj_property>
-      <obj_property name="ObjectShortName">A[31:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/testbench/dut/mipscpu/dp/PCadd1/Y">
-      <obj_property name="ElementShortName">Y[31:0]</obj_property>
-      <obj_property name="ObjectShortName">Y[31:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/testbench/dut/mipscpu/dp/PCbrmux/Y">
-      <obj_property name="ElementShortName">Y[31:0]</obj_property>
-      <obj_property name="ObjectShortName">Y[31:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/testbench/dut/mipscpu/dp/PCbrmux/D0">
-      <obj_property name="ElementShortName">D0[31:0]</obj_property>
-      <obj_property name="ObjectShortName">D0[31:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/testbench/dut/mipscpu/dp/PCbrmux/D1">
-      <obj_property name="ElementShortName">D1[31:0]</obj_property>
-      <obj_property name="ObjectShortName">D1[31:0]</obj_property>
    </wvobject>
 </wave_config>
