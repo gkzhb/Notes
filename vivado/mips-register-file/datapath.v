@@ -12,17 +12,20 @@ module datapath(
 	input [31:0] ReadData,
 	input [4:0] ReadReg,
 	output [31:0] RegData,
-	output [31:0] PCNext);
+	output [31:0] PCNext,
+	output [7:0] PCp4, PCB);
 
 	wire [4:0] WriteReg;
 	wire [31:0] PCNextBr, PCPlus4, PCBranch;
 	wire [31:0] SignImm, SignImmsh;
 	wire [31:0] SrcA, SrcB;
 	wire [31:0] Result;
+	assign PCp4[7:0] = PCPlus4[9:2];
+	assign PCB[7:0] = PCBranch[9:2];
 
 	// 下一个 PC 地址
 	flopr #(32) PCreg(CLK, Reset, PCNext[31:0], PC[31:0]);
-	adder PCadd1(PC[31:0], 32'b100, PCPlus4[31:0]);
+	adder PCadd1(PC[31:0], 32'b0000_0000_0000_0000_0000_0000_0000_0100, PCPlus4[31:0]);
 	sl2 immsh(SignImm[31:0], SignImmsh[31:0]);
 	adder PCadd2(PCPlus4[31:0], SignImmsh[31:0], PCBranch[31:0]);
 	mux2 #(32) PCbrmux(PCPlus4[31:0], PCBranch[31:0], PCSrc, PCNextBr[31:0]);

@@ -10,7 +10,7 @@ module display(
     output [6:0] a2g,
 	output [7:0] an,
 	output dp,
-	input [31:0] AluOut
+	input [15:0] DataIn
 );
 // 显示模块 Display Module
 	reg [31:0] Data;
@@ -21,15 +21,15 @@ module display(
 		begin
 			ReadReg <= Addr[4:0];
 			ReadMem <= 6'b000_000;
-			Data[23:0] <= RegData[23:0];
+			Data[15:0] <= RegData[15:0];
 		end
 		else
 		begin
 			ReadReg <= 5'b0_0000;
 			ReadMem <= Addr;
-			Data[23:0] <= MemData[23:0];
+			Data[15:0] <= MemData[15:0];
 		end
-		Data[31:24] <= AluOut[7:0];
+		Data[31:16] <= DataIn[15:0];
 	end
 
 	async7seg seg(Data, clk, clr, a2g[6:0], an[7:0], dp);

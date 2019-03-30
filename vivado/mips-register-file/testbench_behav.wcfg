@@ -13,7 +13,7 @@
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
       <ZoomEndTime time="121490500fs"></ZoomEndTime>
-      <Cursor1Time time="23449000fs"></Cursor1Time>
+      <Cursor1Time time="16987000fs"></Cursor1Time>
    </zoom_setting>
    <WVObjectSize size="26" />
    <wvobject db_ref_id="1" type="logic" fp_name="/testbench/CLK">
@@ -40,10 +40,6 @@
       <obj_property name="ElementShortName">RAM[63:0][31:0]</obj_property>
       <obj_property name="ObjectShortName">RAM[63:0][31:0]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/testbench/dut/mipscpu/PC">
-      <obj_property name="ElementShortName">PC[31:0]</obj_property>
-      <obj_property name="ObjectShortName">PC[31:0]</obj_property>
-   </wvobject>
    <wvobject db_ref_id="1" type="array" fp_name="/testbench/dut/mipscpu/c/md/ctls">
       <obj_property name="ElementShortName">ctls[11:0]</obj_property>
       <obj_property name="ObjectShortName">ctls[11:0]</obj_property>
@@ -52,6 +48,11 @@
    <wvobject db_ref_id="1" type="array" fp_name="/testbench/dut/mipscpu/dp/rf/rf">
       <obj_property name="ElementShortName">rf[31:0][31:0]</obj_property>
       <obj_property name="ObjectShortName">rf[31:0][31:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/testbench/dut/mipscpu/PC">
+      <obj_property name="ElementShortName">PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC[31:0]</obj_property>
    </wvobject>
    <wvobject db_ref_id="1" type="array" fp_name="/testbench/dut/mipscpu/Instr">
       <obj_property name="ElementShortName">Instr[31:0]</obj_property>

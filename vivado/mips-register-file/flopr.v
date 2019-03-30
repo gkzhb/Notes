@@ -3,11 +3,14 @@
 module flopr #(parameter WIDTH = 8)
 	(input CLK, RESET,
 	input [WIDTH - 1:0] d,
-	output reg [WIDTH - 1:0] q);
+	output [WIDTH - 1:0] q);
+
+	reg [WIDTH - 1:0] dt;
+	assign q = dt;
 
 	always @(posedge CLK, posedge RESET)
 		if (RESET)
-			q <= 0;
+			dt <= 0;
 		else
-			q <= d;
+			dt <= d;
 endmodule
