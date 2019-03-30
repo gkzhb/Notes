@@ -11,10 +11,11 @@ module datapath(
 	output [31:0] AluOut, WriteData,
 	input [31:0] ReadData,
 	input [4:0] ReadReg,
-	output [31:0] RegData);
+	output [31:0] RegData,
+	output [31:0] PCNext);
 
 	wire [4:0] WriteReg;
-	wire [31:0] PCNext, PCNextBr, PCPlus4, PCBranch;
+	wire [31:0] PCNextBr, PCPlus4, PCBranch;
 	wire [31:0] SignImm, SignImmsh;
 	wire [31:0] SrcA, SrcB;
 	wire [31:0] Result;

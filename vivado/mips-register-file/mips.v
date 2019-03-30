@@ -8,7 +8,7 @@ module mips(
 	output [31:0] AluOut, WriteData,
 	input [31:0] ReadData,
 	input [4:0] ReadReg,
-	output [31:0] RegData);
+	output [31:0] RegData, PCNext);
 
 	wire MemToReg, AluSrc, RegDst, RegWrite, Jump, PCSrc, Zero, ExtOp;
 
@@ -17,5 +17,5 @@ module mips(
 	controller  c(Instr[31:26], Instr[5:0], Zero, MemToReg, MemWrite, PCSrc,
 		AluSrc, RegDst, RegWrite, Jump, AluCtl, ExtOp);
 	datapath dp(CLK, Reset, MemToReg, PCSrc, AluSrc, RegDst, RegWrite, Jump,
-		AluCtl, ExtOp, Zero, PC, Instr, AluOut, WriteData, ReadData, ReadReg, RegData);
+		AluCtl, ExtOp, Zero, PC, Instr, AluOut, WriteData, ReadData, ReadReg, RegData, PCNext);
 endmodule

@@ -29,7 +29,7 @@ module testbench();
 
 	initial
 	begin
-		Reset <= 1; #22; Reset <= 0;
+		Reset <= 1; #5; Reset <= 0;
 	end
 
 	always

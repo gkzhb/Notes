@@ -18,5 +18,5 @@ module clkdiv(
     end
     assign clk1=q[2];
     assign clk2=q[16];
-    assign clk3=q[24];         
+    assign clk3=q[27];
 endmodule

@@ -10,18 +10,19 @@ module topcpu(
 );
 // mips 上板子的顶层文件
 	wire [31:0] out, addr, PC;
-	wire mw;
+	wire mw, clk1, clk2, clk3, clk4, clk5, clk1hz;
 	wire [4:0] ReadReg;
 	wire [5:0] ReadMem;
 	wire [31:0] RegData, MemData;
-    wire clk1, clk190x4, clk1hz;
 	wire cpuclk;
+	wire [31:0] AluOut, PCNext;
 
-	assign cpuclk = clk1hz & (~SW[8]);
-	assign LED = PC[19:4];
+	assign CLK = CLK100MHZ & (~SW[8]);
+	assign LED[15:0] = {clk1hz, PCNext[10:4], PC[11:4]};
 	
-	top topmips(cpuclk, SW[7], out, addr, mw, ReadReg, ReadMem, RegData, MemData, PC);
-	display displaydata(SW[0], SW[6:1], RegData, MemData, clk190x4, SW[7], ReadReg, ReadMem, {CG, CF, CE, CD, CC, CB, CA}, AN[7:0], DP);
-	clkdiv clocker(CLK100MHZ, SW[7], clk1, clk190x4, clk1hz);
+	top topmips(clk1hz, SW[7], out, addr, mw, ReadReg, ReadMem, RegData, MemData, PC, AluOut, PCNext);
+	display displaydata(SW[0], SW[6:1], RegData, MemData, clk2, SW[7], ReadReg, ReadMem, {CG, CF, CE, CD, CC, CB, CA}, AN[7:0], DP, AluOut);
+	clkdiv clocker1(CLK100MHZ, SW[7], clk1, clk2, clk3);
+	clkdiv clocker2(CLK, SW[7], clk4, clk5, clk1hz);
 
 endmodule
