@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 module enreg #(parameter WIDTH = 32)
-	(input CLK, EN, Reset
+	(input CLK, Reset, EN,
 	input [WIDTH - 1:0] Data,
 	output [WIDTH - 1:0] Out);
 
