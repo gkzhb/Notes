@@ -20,13 +20,13 @@ module datapath(
 
 	// PC
 	enreg #(32) pcreg(CLK, Reset, PCEn, PCNext, PC);
-	mux4 #(32) pcmux({ALUResult, ALUOut, {PC[31:28], Instr[25:0], 2'b00}, 32'b0, PCSrc, PCNext);
+	mux4 #(32) pcmux(ALUResult, ALUOut, {PC[31:28], Instr[25:0], 2'b00}, 32'b0, PCSrc, PCNext);
 	mux2 #(32) addrmux(PC, ALUOut, IorD, Addr);
 
 	// regfile
 	regfile rf(CLK, RegWrite, Instr[25:21], Instr[20:16], WriteReg, Result, rd1, WriteData, DispReadReg[4:0], DispRegData);
 	mux2 #(5) wrmux(Instr[20:16], Instr[15:11], RegDst, WriteReg);
-	mux2 #(32) resmux(AluOut, Data, MemToReg, Result);
+	mux2 #(32) resmux(ALUOut, Data, MemToReg, Result);
 
 	// Instr
 	enreg #(32) instrreg(CLK, Reset, IRWrite, MemData, Instr);
@@ -36,7 +36,7 @@ module datapath(
 	ext se(Instr[15:0], ExtOp, SignImm);
 	sl2 immsh(SignImm, SignImmsh);
 	mux2 #(32) srcamux(PC, rd1, ALUSrcA, SrcA);
-	mux4 #(32) srcbmux({SrcB, 32'b100, SignImm, SignImmsh}, ALUSrcB, SrcB);
+	mux4 #(32) srcbmux(SrcB, 32'b100, SignImm, SignImmsh, ALUSrcB, SrcB);
 	ALU alu(SrcA, SrcB, ALUCtl, ALUResult, Zero);
 	flopr #(32) alustore(CLK, Reset, ALUResult, ALUOut);
 
