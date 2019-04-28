@@ -10,6 +10,7 @@ module datapath(
 	output [31:0] Addr, PCNext, WriteData,
 	output [5:0] Op, Funct,
 	output Zero,
+	output [31:0] PC,
 	input [4:0] DispReadReg,
 	output [31:0] DispRegData);
 	

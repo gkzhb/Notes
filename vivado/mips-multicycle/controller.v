@@ -8,7 +8,6 @@ module controller(
 	output reg ExtOp,
 	output reg [2:0] ALUCtl,
 	output [1:0] ALUSrcB, PCSrc,
-
 	output [2:0] AluCtl);
 
 	// FSM State Encode
@@ -44,9 +43,9 @@ module controller(
 	wire RType;
 	wire bne;
 
-	assign {PCWrite, MemWrite, IRWrite, RegWrite, AluSrcA, Branch, IorD, MemToReg, RegDst, AluSrcB, PCSrc, AluOp0} = ctls;
+	assign {PCWrite, MemWrite, IRWrite, RegWrite, AluSrcA, IorD, MemToReg, RegDst, AluSrcB, PCSrc, AluOp0} = ctls;
 	assign AluCtl = AluOp0 | AluOp1;
-	assign bne = Op[0];		// beq bne Op Code 差别在于最低位
+	assign bne = Op[0];		// beq 与 bne 的 Op Code 差别在于最低位
 	assign ExtOp0 = 1;
 	assign PCEn = (Zero ^ bne) & Branch & PCWrite;
 
@@ -94,15 +93,35 @@ module controller(
 			default: nextstate = 4'bx;
 		endcase
 	
+	// AluCtl 和 ExtOp 的在 R-Type/I-Type Execute 阶段的特殊控制
 	always @(*)
 		if (state == REX || state == IEX)
-			{AluCtl, ExtOp} <= {AluOp1, ExtOp1};
+			{AluCtl, ExtOp} = {AluOp1, ExtOp1};
 		else
-			{AluCtl, ExtOp} <= {AluOp0, ExtOp0};
+			{AluCtl, ExtOp} = {AluOp0, ExtOp0};
+
+	// Branch 只有在 BEQ 或 BNE 的执行阶段才为 1
+	always @(*)
+		if (state == BEX)
+			Branch = 1;
+		else
+			Branch = 0;
 	
 	// 状态输出
 	always @(*)
 		case(state)
-			FETCH: ctls = 16'b0;
+			FETCH:   ctls = 15'b1010_00xx_0100_010;
+			DECODE:  ctls = 15'b0000_0xxx_11xx_010;
+			MEMADR:  ctls = 15'b0000_11xx_10xx_010;
+			MEMRD:   ctls = 15'b0000_x1xx_xxxx_xxx;
+			MEMWB:   ctls = 15'b0001_xx1x_xxxx_xxx;
+			MEMWR:   ctls = 15'b0100_x1xx_xxxx_xxx;
+			REX:     ctls = 15'b0000_1xxx_00xx_xxx;
+			RWB:     ctls = 15'b0001_xx01_xxxx_xxx;
+			IEX:     ctls = 15'b0000_1xxx_10xx_xxx;
+			IWB:     ctls = 15'b0001_xx00_xxxx_xxx;
+			JEX:     ctls = 15'b1000_xxxx_xx10_xxx;
+			BEX:     ctls = 15'b1000_1xxx_0001_110;
+			default: ctls = 15'bxxxx_xxxx_xxxx_xxx;
 		endcase
 endmodule
