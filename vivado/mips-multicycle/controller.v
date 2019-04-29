@@ -6,9 +6,9 @@ module controller(
 	input Zero,
 	output IorD, MemWrite, IRWrite, RegDst, MemToReg, ALUSrcA, RegWrite, PCEn,
 	output reg ExtOp,
-	output reg [2:0] ALUCtl,
 	output [1:0] ALUSrcB, PCSrc,
-	output [2:0] AluCtl);
+	output reg [2:0] AluCtl,
+	output [3:0] Stat);
 
 	// FSM State Encode
 	parameter FETCH   = 4'b0000;	// Fetch instruction
@@ -37,25 +37,30 @@ module controller(
 	parameter SLTI  = 6'b00_1010;
 	parameter ORI   = 6'b00_1101;
 
-	reg [3:0] state, nextstate;
-	reg [16:0] ctls;
+	// flopr #(4) stateflopr(CLK, Reset, nextstateout, state);
+	// flopr #(4) stateflopr(~CLK, Reset, curstate, state);
+	wire [3:0] state;
+	assign state = curstate;
+	reg [3:0] curstate, nextstate;
+	reg [14:0] ctls;
+	reg Branch;
 	wire [2:0] AluOp0, AluOp1;
 	wire RType;
 	wire bne;
 
-	assign {PCWrite, MemWrite, IRWrite, RegWrite, AluSrcA, IorD, MemToReg, RegDst, AluSrcB, PCSrc, AluOp0} = ctls;
-	assign AluCtl = AluOp0 | AluOp1;
+	assign Stat = curstate;
+	assign {PCWrite, MemWrite, IRWrite, RegWrite, ALUSrcA, IorD, MemToReg, RegDst, ALUSrcB, PCSrc, AluOp0} = ctls;
 	assign bne = Op[0];		// beq 与 bne 的 Op Code 差别在于最低位
 	assign ExtOp0 = 1;
-	assign PCEn = (Zero ^ bne) & Branch & PCWrite;
+	assign PCEn = ((Zero ^ bne) & Branch) | PCWrite;
 
 	aludec ad(Op, Funct, AluOp1, ExtOp1);
 
 	always @(posedge CLK, posedge Reset)
-		if (Reset)
-			state <= FETCH;
+		if (Reset == 1'b1)
+			curstate <= FETCH;
 		else
-			state <= nextstate;
+			curstate <= nextstate;
 	
 	// Finite State Machine, 状态转移
 	always @(*)
@@ -96,16 +101,16 @@ module controller(
 	// AluCtl 和 ExtOp 的在 R-Type/I-Type Execute 阶段的特殊控制
 	always @(*)
 		if (state == REX || state == IEX)
-			{AluCtl, ExtOp} = {AluOp1, ExtOp1};
+			{AluCtl, ExtOp} <= {AluOp1, ExtOp1};
 		else
-			{AluCtl, ExtOp} = {AluOp0, ExtOp0};
+			{AluCtl, ExtOp} <= {AluOp0, ExtOp0};
 
 	// Branch 只有在 BEQ 或 BNE 的执行阶段才为 1
 	always @(*)
 		if (state == BEX)
-			Branch = 1;
+			Branch <= 1;
 		else
-			Branch = 0;
+			Branch <= 0;
 	
 	// 状态输出
 	always @(*)
@@ -114,14 +119,14 @@ module controller(
 			DECODE:  ctls = 15'b0000_0xxx_11xx_010;
 			MEMADR:  ctls = 15'b0000_11xx_10xx_010;
 			MEMRD:   ctls = 15'b0000_x1xx_xxxx_xxx;
-			MEMWB:   ctls = 15'b0001_xx1x_xxxx_xxx;
+			MEMWB:   ctls = 15'b0001_xx10_xxxx_xxx;
 			MEMWR:   ctls = 15'b0100_x1xx_xxxx_xxx;
 			REX:     ctls = 15'b0000_1xxx_00xx_xxx;
 			RWB:     ctls = 15'b0001_xx01_xxxx_xxx;
 			IEX:     ctls = 15'b0000_1xxx_10xx_xxx;
 			IWB:     ctls = 15'b0001_xx00_xxxx_xxx;
 			JEX:     ctls = 15'b1000_xxxx_xx10_xxx;
-			BEX:     ctls = 15'b1000_1xxx_0001_110;
+			BEX:     ctls = 15'b0000_1xxx_0001_110;
 			default: ctls = 15'bxxxx_xxxx_xxxx_xxx;
 		endcase
 endmodule

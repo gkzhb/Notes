@@ -2,18 +2,19 @@
 
 module aludec(
 	input [5:0] Op, Funct,
-	output reg [2:0] AluCtl);
+	output reg [2:0] AluCtl,
+	output reg ExtOp);
 
-	wire IorR;
-	assign IorR = |Op;
+	wire itype;
+	assign itype = |Op;
 
 	always @(*)
-		if (IorR)
+		if (itype)
 			case(Op)	// I-Type or others
 				6'b001_000: AluCtl = 010;	// addi
 				6'b001_100: AluCtl = 000;	// andi
 				6'b001_010: AluCtl = 111;	// slti
-				6'b001_000: AluCtl = 001;	// ori
+				6'b001_101: AluCtl = 001;	// ori
 				default: AluCtl = 3'b000;	// others
 			endcase
 		else
@@ -31,7 +32,7 @@ module aludec(
 			6'b001_000: ExtOp = 1;	// addi
 			6'b001_100: ExtOp = 0;	// andi
 			6'b001_010: ExtOp = 1;	// slti
-			6'b001_000: ExtOp = 0;	// ori
+			6'b001_101: ExtOp = 0;	// ori
 			default: ExtOp = 1;		// others
 		endcase
 

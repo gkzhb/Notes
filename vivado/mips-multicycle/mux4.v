@@ -3,7 +3,7 @@
 module mux4 #(parameter WIDTH=8)
 	(input [WIDTH - 1:0] A0, A1, A2, A3,
 	input [1:0] S,
-	output [WIDTH - 1:0] Y);
+	output reg [WIDTH - 1:0] Y);
 
 	always @(*)
 		case (S)
