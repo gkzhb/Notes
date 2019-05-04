@@ -11,15 +11,11 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="226892742fs"></ZoomEndTime>
-      <Cursor1Time time="545860000fs"></Cursor1Time>
+      <ZoomStartTime time="270170000fs"></ZoomStartTime>
+      <ZoomEndTime time="407770001fs"></ZoomEndTime>
+      <Cursor1Time time="235890000fs"></Cursor1Time>
    </zoom_setting>
    <WVObjectSize size="24" />
-   <wvobject db_ref_id="1" type="logic" fp_name="/testbench/CLK">
-      <obj_property name="ElementShortName">CLK</obj_property>
-      <obj_property name="ObjectShortName">CLK</obj_property>
-   </wvobject>
    <wvobject db_ref_id="1" type="logic" fp_name="/testbench/Reset">
       <obj_property name="ElementShortName">Reset</obj_property>
       <obj_property name="ObjectShortName">Reset</obj_property>
@@ -32,9 +28,21 @@
       <obj_property name="ElementShortName">DispMem[31:0]</obj_property>
       <obj_property name="ObjectShortName">DispMem[31:0]</obj_property>
    </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/testbench/Disp">
+      <obj_property name="ElementShortName">Disp[6:0]</obj_property>
+      <obj_property name="ObjectShortName">Disp[6:0]</obj_property>
+   </wvobject>
    <wvobject db_ref_id="1" type="array" fp_name="/testbench/PCNext">
       <obj_property name="ElementShortName">PCNext[31:0]</obj_property>
       <obj_property name="ObjectShortName">PCNext[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/testbench/CLK">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/testbench/PC">
+      <obj_property name="ElementShortName">PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC[31:0]</obj_property>
    </wvobject>
    <wvobject db_ref_id="1" type="array" fp_name="/testbench/Instr">
       <obj_property name="ElementShortName">Instr[31:0]</obj_property>
@@ -44,23 +52,14 @@
       <obj_property name="ElementShortName">Stat[3:0]</obj_property>
       <obj_property name="ObjectShortName">Stat[3:0]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/testbench/Disp">
-      <obj_property name="ElementShortName">Disp[6:0]</obj_property>
-      <obj_property name="ObjectShortName">Disp[6:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/testbench/dut/mipscpu/c/ctls">
-      <obj_property name="ElementShortName">ctls[14:0]</obj_property>
-      <obj_property name="ObjectShortName">ctls[14:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/testbench/PC">
-      <obj_property name="ElementShortName">PC[31:0]</obj_property>
-      <obj_property name="ObjectShortName">PC[31:0]</obj_property>
-   </wvobject>
    <wvobject db_ref_id="1" type="array" fp_name="/testbench/dut/mipscpu/dp/rf/rf">
       <obj_property name="ElementShortName">rf[31:0][31:0]</obj_property>
       <obj_property name="ObjectShortName">rf[31:0][31:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/testbench/dut/mipscpu/c/ctls">
+      <obj_property name="ElementShortName">ctls[14:0]</obj_property>
+      <obj_property name="ObjectShortName">ctls[14:0]</obj_property>
    </wvobject>
    <wvobject db_ref_id="1" type="logic" fp_name="/testbench/dut/mipscpu/c/ExtOp">
       <obj_property name="ElementShortName">ExtOp</obj_property>
@@ -105,7 +104,6 @@
    <wvobject db_ref_id="1" type="array" fp_name="/testbench/dut/memory/RAM">
       <obj_property name="ElementShortName">RAM[63:0][31:0]</obj_property>
       <obj_property name="ObjectShortName">RAM[63:0][31:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject db_ref_id="1" type="logic" fp_name="/testbench/dut/mipscpu/MemWrite">
       <obj_property name="ElementShortName">MemWrite</obj_property>

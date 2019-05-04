@@ -87,12 +87,12 @@ module controller(
 					default: nextstate = 4'bx;
 				endcase
 			MEMRD:   nextstate = MEMWB;
-			MEMWB:   nextstate = FETCH;
+			MEMWB:   nextstate = DECODE;
 			MEMWR:   nextstate = FETCH;
 			REX:     nextstate = RWB;
-			RWB:     nextstate = FETCH;
+			RWB:     nextstate = DECODE;
 			IEX:     nextstate = IWB;
-			IWB:     nextstate = FETCH;
+			IWB:     nextstate = DECODE;
 			JEX:     nextstate = FETCH;
 			BEX:     nextstate = FETCH;
 			default: nextstate = 4'bx;
@@ -115,18 +115,18 @@ module controller(
 	// 状态输出
 	always @(*)
 		case(state)
-			FETCH:   ctls = 15'b1010_00xx_0100_010;
 			DECODE:  ctls = 15'b0000_0xxx_11xx_010;
 			MEMADR:  ctls = 15'b0000_11xx_10xx_010;
 			MEMRD:   ctls = 15'b0000_x1xx_xxxx_xxx;
-			MEMWB:   ctls = 15'b0001_xx10_xxxx_xxx;
 			MEMWR:   ctls = 15'b0100_x1xx_xxxx_xxx;
 			REX:     ctls = 15'b0000_1xxx_00xx_xxx;
-			RWB:     ctls = 15'b0001_xx01_xxxx_xxx;
 			IEX:     ctls = 15'b0000_1xxx_10xx_xxx;
-			IWB:     ctls = 15'b0001_xx00_xxxx_xxx;
 			JEX:     ctls = 15'b1000_xxxx_xx10_xxx;
 			BEX:     ctls = 15'b0000_1xxx_0001_110;
+			FETCH:   ctls = 15'b1010_00xx_0100_010;
+			MEMWB:   ctls = 15'b1011_0010_0100_010;
+			RWB:     ctls = 15'b1011_0001_0100_010;
+			IWB:     ctls = 15'b1011_0000_0100_010;
 			default: ctls = 15'bxxxx_xxxx_xxxx_xxx;
 		endcase
 endmodule
