@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 module regfile(
-	input CLK,
+	input CLK, Reset,
 	input WE3,
 	input [4:0] RA1, RA2, RA3,
 	input [31:0] WD3,
@@ -11,11 +11,14 @@ module regfile(
 
 	reg [31:0] rf [31:0];
 
-	always @(negedge CLK)		// 下降沿写入
-		if (WE3)
-			rf[RA3] <= WD3;
+	always @(negedge CLK, posedge Reset)		// 下降沿写入
+		if (Reset)
+			$readmemh("/home/zhb/vivado/mips-pipeline/clear.dat", rf);
 		else
-			rf[RA3] <= rf[RA3];
+			if (WE3)
+				rf[RA3] <= WD3;
+			else
+				rf[RA3] <= rf[RA3];
 	
 	assign RD1 = (RA1 != 0) ? rf[RA1] : 0;
 	assign RD2 = (RA2 != 0) ? rf[RA2] : 0;
