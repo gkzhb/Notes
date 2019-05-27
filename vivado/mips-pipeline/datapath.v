@@ -36,16 +36,16 @@ module datapath(
 	wire [31:0] readDataW, resultW;
 
 	hazard h(rsD, rtD, rsE, rtE, writeRegE, writeRegM, writeRegW,
-			regWriteE, regWriteM, regWriteW,
-			memToRegE, memToRegM, branchD,
+			RegWriteE, RegWriteM, RegWriteW,
+			MemToRegE, MemToRegM, BranchD,
 			forwardaD, forwardbD, forwardaE, forwardbE,
-			stallF, stallD, flushE);
+			stallF, stallD, FlushE);
 
-	mux2 #(32) pcbrmux(pcPlus4F, pcBranchD, pcSrcD, pcNextBrFD);
+	mux2 #(32) pcbrmux(pcPlus4F, pcBranchD, PCSrcD, pcNextBrFD);
 	mux2 #(32) pcmux(pcNextBrFD, {pcPlus4D[31:28], instrD[25:0], 2'b00},
-					jumpD, pcNextFD);
+					JumpD, pcNextFD);
 
-	regfile rf(CLK, Reset, regWriteW, rsD, rtD, writeRegW,
+	regfile rf(CLK, Reset, RegWriteW, rsD, rtD, writeRegW,
 				resultW, srcAD, srcBD, DispReadReg, DispRegData);
 
 	// Fetch
@@ -54,43 +54,43 @@ module datapath(
 
 	// Decode
 	flopenr #(32) r1D(CLK, Reset, ~stallD, pcPlus4F, pcPlus4D);
-	flopenrc #(32) r2D(CLK, Reset, ~stallD, flushD, InstrF, instrD);
+	flopenrc #(32) r2D(CLK, Reset, flushD, ~stallD, InstrF, instrD);
 	ext se(instrD[15:0], ExtOpD, signImmD);
 	sl2 immsh(signImmD, signImmShD);
 	adder pcadd2(pcPlus4D, signImmShD, pcBranchD);
 	mux2 #(32) forwardadmux(srcAD, ALUOutM, forwardaD, srcA2D);
 	mux2 #(32) forwardbdmux(srcBD, ALUOutM, forwardbD, srcB2D);
-	equalcmp comp(srcA2D, srcB2D, equalD);
-	assign opD = instrD[31:26];
-	assign functD = instrD[5:0];
+	equalcmp comp(srcA2D, srcB2D, EqualD);
+	assign OpD = instrD[31:26];
+	assign FunctD = instrD[5:0];
 	assign rsD = instrD[25:21];
 	assign rtD = instrD[20:16];
 	assign rdD = instrD[15:11];
 
-	assign flushD = pcSrcD | jumpD;
+	assign flushD = PCSrcD | JumpD;
 
 	// Execute
-	floprc #(32) r1E(CLK, Reset, flushE, srcAD, srcAE);
-	floprc #(32) r2E(CLK, Reset, flushE, srcBD, srcBE);
-	floprc #(32) r3E(CLK, Reset, flushE, signImmD, signImmE);
-	floprc #(32) r4E(CLK, Reset, flushE, rsD, rsE);
-	floprc #(32) r5E(CLK, Reset, flushE, rtD, rtE);
-	floprc #(32) r6E(CLK, Reset, flushE, rdD, rdE);
+	floprc #(32) r1E(CLK, Reset, FlushE, srcAD, srcAE);
+	floprc #(32) r2E(CLK, Reset, FlushE, srcBD, srcBE);
+	floprc #(32) r3E(CLK, Reset, FlushE, signImmD, signImmE);
+	floprc #(5) r4E(CLK, Reset, FlushE, rsD, rsE);
+	floprc #(5) r5E(CLK, Reset, FlushE, rtD, rtE);
+	floprc #(5) r6E(CLK, Reset, FlushE, rdD, rdE);
 	mux4 #(32) forwardaemux(srcAE, resultW, ALUOutM, 32'b0, forwardaE, srcA2E);
 	mux4 #(32) forwardbemux(srcBE, resultW, ALUOutM, 32'b0, forwardbE, srcB2E);
-	mux2 #(32) srcbmux(srcB2E, signImmE, aluSrcE, srcB3E);
-	ALU alu(srcA2E, srcB3E, aluCtlE, aluOutE);
-	mux2 #(5) wrmux(rtE, rdE, regDstE, writeRegE);
+	mux2 #(32) srcbmux(srcB2E, signImmE, ALUSrcE, srcB3E);
+	ALU alu(srcA2E, srcB3E, ALUCtlE, aluOutE);
+	mux2 #(5) wrmux(rtE, rdE, RegDstE, writeRegE);
 
 	// Memory
 	flopr #(32) r1M(CLK, Reset, srcB2E, WriteDataM);
 	flopr #(32) r2M(CLK, Reset, aluOutE, ALUOutM);
-	flopr #(32) r3M(CLK, Reset, writeRegE, writeRegM);
+	flopr #(5) r3M(CLK, Reset, writeRegE, writeRegM);
 	
 	// Writeback
 	flopr #(32) r1W(CLK, Reset, ALUOutM, aluOutW);
-	flopr #(32) r2W(CLK, Reset, readDataW, readDataW);
-	flopr #(32) r3W(CLK, Reset, writeRegM, writeRegW);
-	mux2 #(32) resmux(aluOutW, readDataW, memToRegW, resultW);
+	flopr #(32) r2W(CLK, Reset, ReadDataM, readDataW);
+	flopr #(5) r3W(CLK, Reset, writeRegM, writeRegW);
+	mux2 #(32) resmux(aluOutW, readDataW, MemToRegW, resultW);
 
 endmodule

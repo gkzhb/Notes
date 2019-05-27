@@ -20,13 +20,13 @@ module controller(
 
 	assign PCSrcD = BranchD & (bneD ^ EqualD);
 
-	floprc #(8) regE(CLK, Reset, flushE,
+	floprc #(8) regE(CLK, Reset, FlushE,
 				{memToRegD, memWriteD, aluSrcD, regDstD, regWriteD, aluCtlD},
 				{MemToRegE, memWriteE, ALUSrcE, RegDstE, RegWriteE, ALUCtlE});
 	flopr #(3) regM(CLK, Reset,
 				{MemToRegE, memWriteE, RegWriteE},
-				{MemToRegM, memWriteE, RegWriteM});
-	flopr #(2) regW(CLk, Reset,
+				{MemToRegM, MemWriteM, RegWriteM});
+	flopr #(2) regW(CLK, Reset,
 				{MemToRegM, RegWriteM},
 				{MemToRegW, RegWriteW});
 

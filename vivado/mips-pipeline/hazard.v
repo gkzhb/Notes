@@ -37,8 +37,8 @@ module hazard(
 			(RegWriteE & (WriteRegE == rsD | WriteRegE == rtD) |
 			MemToRegM & (WriteRegM == rsD | WriteRegM == rtD));
 
-	assign stallD = lwstallD | branchstallD;
-	assign stallF = stallD;
-	assign flushE = stallD;
+	assign StallD = lwstallD | branchstallD;
+	assign StallF = StallD;
+	assign FlushE = StallD;
 
 endmodule

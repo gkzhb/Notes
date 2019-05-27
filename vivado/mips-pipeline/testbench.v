@@ -23,14 +23,13 @@
 module testbench();
 
 	reg CLK, Reset;
-	wire [31:0] WriteData, DataAddr, PC, DispReg, DispMem, PCNext, Instr;
-	wire [3:0] Stat;
+	wire [31:0] PC, DispReg, DispMem, PCNext;
 	reg [5:0] Disp;
-	wire MemWrite;
 	mips_top dut(CLK, Reset, PC, PCNext, Disp[4:0], Disp, DispReg, DispMem);
 
 	initial
 	begin
+		Disp <= 5'b10;
 		Reset <= 1; #5; Reset <= 0;
 	end
 
