@@ -1,21 +1,3 @@
-`timescale 1ns / 1ps
-
-module display(
-	input CLK, Reset,
-	input [1:0] Ctl,
-	input [5:0] Addr,
-	input [31:0] DispRegData, DispMemData,
-	output reg [4:0] DispReadReg,
-	output reg [5:0] DispReadMem,
-	input [31:0] PC, PCNext, Instr,
-	output [6:0] A2G,
-	output [7:0] AN,
-	output DP);
-
-	reg [31:0] Data;
-
-	async7seg seg(Data, CLK, Reset, A2G[6:0], AN[7:0], DP);
-
 	always @(*)
 	begin
 		if (Ctl[1] == 0)
@@ -41,5 +23,3 @@ module display(
 			Data <= Instr;
 		end
 	end
-
-endmodule
