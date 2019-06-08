@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="simcache_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="simcache" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="4876823400fs"></ZoomStartTime>
+      <ZoomEndTime time="5155423402fs"></ZoomEndTime>
+      <Cursor1Time time="4903145000fs"></Cursor1Time>
+   </zoom_setting>
+   <WVObjectSize size="44" />
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcache/CLK">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcache/Reset">
+      <obj_property name="ElementShortName">Reset</obj_property>
+      <obj_property name="ObjectShortName">Reset</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcache/Suspense">
+      <obj_property name="ElementShortName">Suspense</obj_property>
+      <obj_property name="ObjectShortName">Suspense</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcache/WE">
+      <obj_property name="ElementShortName">WE</obj_property>
+      <obj_property name="ObjectShortName">WE</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcache/Addr">
+      <obj_property name="ElementShortName">Addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcache/WD">
+      <obj_property name="ElementShortName">WD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WD[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcache/Hit">
+      <obj_property name="ElementShortName">Hit</obj_property>
+      <obj_property name="ObjectShortName">Hit</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcache/MWE">
+      <obj_property name="ElementShortName">MWE</obj_property>
+      <obj_property name="ObjectShortName">MWE</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcache/MReady">
+      <obj_property name="ElementShortName">MReady</obj_property>
+      <obj_property name="ObjectShortName">MReady</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcache/RD">
+      <obj_property name="ElementShortName">RD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RD[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcache/MAddr">
+      <obj_property name="ElementShortName">MAddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MAddr[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcache/MWD">
+      <obj_property name="ElementShortName">MWD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MWD[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcache/MRD">
+      <obj_property name="ElementShortName">MRD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MRD[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcache/data">
+      <obj_property name="ElementShortName">data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcache/testcache/cctls/state">
+      <obj_property name="ElementShortName">state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">state[3:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcache/testcache/cctls/nextstate">
+      <obj_property name="ElementShortName">nextstate[3:0]</obj_property>
+      <obj_property name="ObjectShortName">nextstate[3:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcache/testcache/cctls/ctls">
+      <obj_property name="ElementShortName">ctls[5:0]</obj_property>
+      <obj_property name="ObjectShortName">ctls[5:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcache/testcache/set0/Ctls">
+      <obj_property name="ElementShortName">Ctls[6:0]</obj_property>
+      <obj_property name="ObjectShortName">Ctls[6:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcache/testcache/set0/Addr">
+      <obj_property name="ElementShortName">Addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcache/testcache/set0/replctl/S">
+      <obj_property name="ElementShortName">S[1:0]</obj_property>
+      <obj_property name="ObjectShortName">S[1:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcache/testcache/set0/replctl/count">
+      <obj_property name="ElementShortName">count[3:0][1:0]</obj_property>
+      <obj_property name="ObjectShortName">count[3:0][1:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcache/testcache/set0/replctl/s00">
+      <obj_property name="ElementShortName">s00[1:0]</obj_property>
+      <obj_property name="ObjectShortName">s00[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcache/testcache/set0/replctl/s01">
+      <obj_property name="ElementShortName">s01[1:0]</obj_property>
+      <obj_property name="ObjectShortName">s01[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcache/testcache/set0/replctl/s0">
+      <obj_property name="ElementShortName">s0[1:0]</obj_property>
+      <obj_property name="ObjectShortName">s0[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcache/testcache/set0/replctl/s1">
+      <obj_property name="ElementShortName">s1[1:0]</obj_property>
+      <obj_property name="ObjectShortName">s1[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcache/testcache/set0/replctl/Hit">
+      <obj_property name="ElementShortName">Hit</obj_property>
+      <obj_property name="ObjectShortName">Hit</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcache/testcache/set0/tag">
+      <obj_property name="ElementShortName">tag[3:0][25:0]</obj_property>
+      <obj_property name="ObjectShortName">tag[3:0][25:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcache/testcache/set0/blk1/CLK">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcache/testcache/set0/blk1/Reset">
+      <obj_property name="ElementShortName">Reset</obj_property>
+      <obj_property name="ObjectShortName">Reset</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcache/testcache/set0/blk1/Offset">
+      <obj_property name="ElementShortName">Offset[1:0]</obj_property>
+      <obj_property name="ObjectShortName">Offset[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcache/testcache/set0/blk1/WE">
+      <obj_property name="ElementShortName">WE</obj_property>
+      <obj_property name="ObjectShortName">WE</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcache/testcache/set0/blk1/SetValid">
+      <obj_property name="ElementShortName">SetValid</obj_property>
+      <obj_property name="ObjectShortName">SetValid</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcache/testcache/set0/blk1/SetDirty">
+      <obj_property name="ElementShortName">SetDirty</obj_property>
+      <obj_property name="ObjectShortName">SetDirty</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcache/testcache/set0/blk1/SetTag">
+      <obj_property name="ElementShortName">SetTag[25:0]</obj_property>
+      <obj_property name="ObjectShortName">SetTag[25:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcache/testcache/set0/blk1/WD">
+      <obj_property name="ElementShortName">WD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WD[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcache/testcache/set0/blk1/Valid">
+      <obj_property name="ElementShortName">Valid</obj_property>
+      <obj_property name="ObjectShortName">Valid</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcache/testcache/set0/blk1/Dirty">
+      <obj_property name="ElementShortName">Dirty</obj_property>
+      <obj_property name="ObjectShortName">Dirty</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcache/testcache/set0/blk1/Tag">
+      <obj_property name="ElementShortName">Tag[25:0]</obj_property>
+      <obj_property name="ObjectShortName">Tag[25:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcache/testcache/set0/blk1/RD">
+      <obj_property name="ElementShortName">RD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RD[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcache/testcache/set0/blk1/data">
+      <obj_property name="ElementShortName">data[3:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">data[3:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcache/testcache/outTag">
+      <obj_property name="ElementShortName">outTag[25:0]</obj_property>
+      <obj_property name="ObjectShortName">outTag[25:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcache/testcache/set0/blk1/Tag">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">Tag[25:0]</obj_property>
+      <obj_property name="ObjectShortName">Tag[25:0]</obj_property>
+      <obj_property name="label">Tag01[25:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcache/testcache/set0/OutTag">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">OutTag[25:0]</obj_property>
+      <obj_property name="ObjectShortName">OutTag[25:0]</obj_property>
+      <obj_property name="label">OutTag0[25:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcache/memory/RAM">
+      <obj_property name="ElementShortName">RAM[127:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">RAM[127:0][31:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+</wave_config>
