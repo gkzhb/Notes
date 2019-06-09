@@ -7,11 +7,14 @@ module block(
 	input WE, SetValid, SetDirty,
 	input [25:0] SetTag,
 	input [31:0] WD,
-	output reg Valid, Dirty,
+	output reg Valid,
+	output Dirty,
 	output reg [25:0] Tag,
 	output [31:0] RD);
 
 	reg [31:0] data[3:0];
+	reg dirty;
+	assign Dirty = dirty & Valid;
 
 	assign RD = data[Offset];
 
@@ -22,14 +25,14 @@ module block(
 			if (WE)
 			begin
 				data[Offset] <= WD;
-				Dirty <= SetDirty;
+				dirty <= SetDirty;
 				Valid <= SetValid;
 				Tag <= SetTag;
 			end
 			else
 			begin
 				data[Offset] <= data[Offset];
-				Dirty <= Dirty;
+				dirty <= dirty;
 				Valid <= Valid;
 				Tag <= Tag;
 			end

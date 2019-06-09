@@ -1,13 +1,15 @@
 `timescale 1ns / 1ps
 
 module cachecontroller(
-	input CLK, Reset, Suspense, CWE, Hit, MReady, Dirty,
+	input CLK, Reset, En, Suspense, CWE, Hit, MReady, Dirty,
 	output WE, SetValid, SetDirty, MWE,
 	output [1:0] BlockOffset,
-	output reg Init, OffsetSW);
+	output Init,
+	output reg OffsetSW);
 
 	reg [3:0] state, nextstate;
 	reg [5:0] ctls;
+	wire we0, initstate;
 
 	always @(posedge CLK)
 		if (Reset)
@@ -15,16 +17,17 @@ module cachecontroller(
 		else
 			state <= nextstate;
 	
-	assign {WE, SetValid, SetDirty, MWE, BlockOffset} = ctls;
+	assign {we0, SetValid, SetDirty, MWE, BlockOffset} = ctls;
+	assign WE = we0 & ~(initstate & Hit & Suspense);
 
 	// 有限状态机状态转移
 	always @(*)
 		case (state)
 			4'h0:
-				if (Hit)
-					if (Suspense)
+				if (Hit | ~En)
+					/* if (Suspense | ~En)
 					nextstate <= 4'h9;
-					else
+					else */
 					nextstate <= 4'h0;
 				else
 					if (Dirty)
@@ -72,7 +75,7 @@ module cachecontroller(
 				else
 					nextstate <= state;
 			4'h9:
-				if (Suspense)
+				if (Suspense | ~En)
 					nextstate <= state;
 				else
 					nextstate <= 4'h0;
@@ -87,11 +90,8 @@ module cachecontroller(
 		else
 			OffsetSW <= 1'b0;
 	
-	always @(*)
-		if (state == 4'h0)
-			Init <= 1'b1;
-		else
-			Init <= 1'b0;
+	assign initstate = ~(|state);
+	assign Init = initstate & En;
 
 	always @(*)
 		case (state)

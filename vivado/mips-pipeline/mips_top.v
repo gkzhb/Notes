@@ -4,14 +4,42 @@ module mips_top(
 	input CLK, Reset,
 	output [31:0] PC, PCNext,
 	input [4:0] DispReadReg,
-	input [5:0] DispReadMem,
+	input [6:0] DispReadMem,
 	output [31:0] DispRegData, DispMemData, Instr);
 
 	wire [31:0] dataAddr, writeData, readData;
 	wire memWrite;
 
-	mips mipscore(CLK, Reset, PC, Instr, memWrite, dataAddr, writeData, readData, PCNext, DispReadReg, DispRegData);
-	imem instruction_memory(PC[7:2], Instr);
-	dmem data_memory(CLK, Reset, memWrite, dataAddr, writeData, readData, DispReadMem, DispMemData);
+	reg state, nextstate;
 
+	wire cpuclk, cpumask, suspense, ready, iEn, dEn, iHit, dHit, iMWE, dMWE, iMReady, dMReady;
+	wire [31:0] iMAddr, dMAddr, iMWD, dMWD, iMRD, dMRD;
+
+	mips mipscore(cpuclk, Reset, PC, Instr, memWrite, dataAddr, writeData, readData, PCNext, DispReadReg, DispRegData, iEn, dEn);
+
+	imem instruction_memory(CLK, Reset, iMAddr, iMReady, iMRD);
+	dmem data_memory(CLK, Reset, dMWE, dMAddr, dMWD, dMReady, dMRD, DispReadMem, DispMemData);
+
+	cache instr_cache(CLK, Reset, iEn, suspense, PC, 1'b0, 32'b0, iHit, Instr,
+						iMAddr, iMWE, iMWD, iMReady, iMRD);
+	cache  data_cache(CLK, Reset, dEn, suspense, dataAddr, memWrite, writeData, dHit, readData,
+						dMAddr, dMWE, dMWD, dMReady, dMRD);
+
+	assign ready = (~iEn | iHit) & (~dEn | dHit);
+	assign cpuclk = cpumask & CLK;
+	assign cpumask = ready & state;
+	assign suspense = ~ready;
+
+	always @(*)
+		if (Reset)
+			nextstate = 1'b0;
+		else
+			nextstate = ready;
+
+	always @(posedge CLK)
+		if (Reset)
+			state <= 2'b00;
+		else
+			state <= nextstate;
+	
 endmodule

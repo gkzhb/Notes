@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="simcpu_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="simcpu" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="700000000fs"></ZoomStartTime>
+      <ZoomEndTime time="1388000001fs"></ZoomEndTime>
+      <Cursor1Time time="1170000000fs"></Cursor1Time>
+   </zoom_setting>
+   <WVObjectSize size="23" />
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/CLK">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/Reset">
+      <obj_property name="ElementShortName">Reset</obj_property>
+      <obj_property name="ObjectShortName">Reset</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/PC">
+      <obj_property name="ElementShortName">PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/PCNext">
+      <obj_property name="ElementShortName">PCNext[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PCNext[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/DispRegData">
+      <obj_property name="ElementShortName">DispRegData[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DispRegData[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/DispMemData">
+      <obj_property name="ElementShortName">DispMemData[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DispMemData[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/Instr">
+      <obj_property name="ElementShortName">Instr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Instr[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/cpuclk">
+      <obj_property name="ElementShortName">cpuclk</obj_property>
+      <obj_property name="ObjectShortName">cpuclk</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/state">
+      <obj_property name="ElementShortName">state</obj_property>
+      <obj_property name="ObjectShortName">state</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/ready">
+      <obj_property name="ElementShortName">ready</obj_property>
+      <obj_property name="ObjectShortName">ready</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/mipscore/CLK">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/iHit">
+      <obj_property name="ElementShortName">iHit</obj_property>
+      <obj_property name="ObjectShortName">iHit</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/dHit">
+      <obj_property name="ElementShortName">dHit</obj_property>
+      <obj_property name="ObjectShortName">dHit</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/iEn">
+      <obj_property name="ElementShortName">iEn</obj_property>
+      <obj_property name="ObjectShortName">iEn</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/dEn">
+      <obj_property name="ElementShortName">dEn</obj_property>
+      <obj_property name="ObjectShortName">dEn</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/mipscore/dp/rf/rf">
+      <obj_property name="ElementShortName">rf[31:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">rf[31:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/instr_cache/cctls/state">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">state[3:0]</obj_property>
+      <obj_property name="label">istate[3:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/cctls/state">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">state[3:0]</obj_property>
+      <obj_property name="label">dstate[3:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/suspense">
+      <obj_property name="ElementShortName">suspense</obj_property>
+      <obj_property name="ObjectShortName">suspense</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/RD">
+      <obj_property name="ElementShortName">RD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RD[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/Addr">
+      <obj_property name="ElementShortName">Addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/data_cache/WE">
+      <obj_property name="ElementShortName">WE</obj_property>
+      <obj_property name="ObjectShortName">WE</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/WD">
+      <obj_property name="ElementShortName">WD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WD[31:0]</obj_property>
+   </wvobject>
+</wave_config>

@@ -9,7 +9,8 @@ module mips(
 	input [31:0] ReadDataM,
 	output [31:0] PCNext,
 	input [4:0] DispReadReg,
-	output [31:0] DispRegData);
+	output [31:0] DispRegData,
+	output IEn, DEn);
 
 	wire [5:0] opD, functD;
 	wire regDstE, aluSrcE, pcSrcD, memToRegE, memToRegM, memToRegW,
@@ -20,7 +21,7 @@ module mips(
 	controller c(CLK, Reset, opD, functD, flushE, equalD,
 				memToRegE, memToRegM, memToRegW, MemWriteM,
 				pcSrcD, branchD, aluSrcE, regDstE, regWriteE, regWriteM, regWriteW,
-				extOpD, jumpD, aluCtlE);
+				extOpD, jumpD, aluCtlE, IEn, DEn);
 	datapath dp(CLK, Reset, memToRegE, memToRegM, memToRegW, pcSrcD, branchD,
 				aluSrcE, regDstE, regWriteE, regWriteM, regWriteW, extOpD, jumpD,
 				aluCtlE, equalD, PCF, InstrF, AluOutM, WriteDataM, ReadDataM,

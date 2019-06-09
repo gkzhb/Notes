@@ -3,10 +3,10 @@
 module display(
 	input CLK, Reset,
 	input [1:0] Ctl,
-	input [5:0] Addr,
+	input [6:0] Addr,
 	input [31:0] DispRegData, DispMemData,
 	output reg [4:0] DispReadReg,
-	output reg [5:0] DispReadMem,
+	output reg [6:0] DispReadMem,
 	input [31:0] PC, PCNext, Instr,
 	output [6:0] A2G,
 	output [7:0] AN,
@@ -24,7 +24,7 @@ module display(
 				1'b0:
 				begin
 					DispReadReg <= Addr[4:0];
-					DispReadMem <= 6'b0;
+					DispReadMem <= 7'b0;
 					Data[15:0] <= DispRegData;
 				end
 				1'b1:

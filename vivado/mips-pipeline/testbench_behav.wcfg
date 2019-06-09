@@ -3,142 +3,53 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="testbench_behav.wdb" id="1">
+      <db_ref path="simcpu_behav.wdb" id="1">
          <top_modules>
             <top_module name="glbl" />
-            <top_module name="testbench" />
+            <top_module name="simcpu" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="130000000fs"></ZoomStartTime>
-      <ZoomEndTime time="198800001fs"></ZoomEndTime>
-      <Cursor1Time time="266200000fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="68800002fs"></ZoomEndTime>
+      <Cursor1Time time="1799340000000fs"></Cursor1Time>
    </zoom_setting>
-   <WVObjectSize size="30" />
-   <wvobject db_ref_id="1" type="array" fp_name="/testbench/dut/data_memory/RAM">
-      <obj_property name="ElementShortName">RAM[63:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">RAM[63:0][31:0]</obj_property>
+   <WVObjectSize size="9" />
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/suspense">
+      <obj_property name="ElementShortName">suspense</obj_property>
+      <obj_property name="ObjectShortName">suspense</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/testbench/CLK">
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/CLK">
       <obj_property name="ElementShortName">CLK</obj_property>
       <obj_property name="ObjectShortName">CLK</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/testbench/Reset">
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/Reset">
       <obj_property name="ElementShortName">Reset</obj_property>
       <obj_property name="ObjectShortName">Reset</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/testbench/dut/mipscore/dp/FlushE">
-      <obj_property name="ElementShortName">FlushE</obj_property>
-      <obj_property name="ObjectShortName">FlushE</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/testbench/dut/mipscore/dp/rf/rf">
-      <obj_property name="ElementShortName">rf[31:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">rf[31:0][31:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/testbench/PCNext">
-      <obj_property name="ElementShortName">PCNext[31:0]</obj_property>
-      <obj_property name="ObjectShortName">PCNext[31:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/testbench/PC">
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/PC">
       <obj_property name="ElementShortName">PC[31:0]</obj_property>
       <obj_property name="ObjectShortName">PC[31:0]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/testbench/dut/mipscore/dp/alu/A">
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">A[31:0]</obj_property>
-      <obj_property name="ObjectShortName">A[31:0]</obj_property>
-      <obj_property name="label">SrcAE[31:0]</obj_property>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/PCNext">
+      <obj_property name="ElementShortName">PCNext[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PCNext[31:0]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/testbench/dut/mipscore/dp/alu/B">
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">B[31:0]</obj_property>
-      <obj_property name="ObjectShortName">B[31:0]</obj_property>
-      <obj_property name="label">SrcBB[31:0]</obj_property>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/DispRegData">
+      <obj_property name="ElementShortName">DispRegData[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DispRegData[31:0]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/testbench/dut/mipscore/c/regWriteD">
-      <obj_property name="ElementShortName">regWriteD</obj_property>
-      <obj_property name="ObjectShortName">regWriteD</obj_property>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/DispMemData">
+      <obj_property name="ElementShortName">DispMemData[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DispMemData[31:0]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/testbench/dut/mipscore/c/memToRegD">
-      <obj_property name="ElementShortName">memToRegD</obj_property>
-      <obj_property name="ObjectShortName">memToRegD</obj_property>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/Instr">
+      <obj_property name="ElementShortName">Instr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Instr[31:0]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/testbench/dut/mipscore/c/memWriteD">
-      <obj_property name="ElementShortName">memWriteD</obj_property>
-      <obj_property name="ObjectShortName">memWriteD</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/testbench/dut/mipscore/c/aluCtlD">
-      <obj_property name="ElementShortName">aluCtlD[2:0]</obj_property>
-      <obj_property name="ObjectShortName">aluCtlD[2:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/testbench/dut/mipscore/c/aluSrcD">
-      <obj_property name="ElementShortName">aluSrcD</obj_property>
-      <obj_property name="ObjectShortName">aluSrcD</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/testbench/dut/mipscore/c/regDstD">
-      <obj_property name="ElementShortName">regDstD</obj_property>
-      <obj_property name="ObjectShortName">regDstD</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/testbench/dut/mipscore/c/BranchD">
-      <obj_property name="ElementShortName">BranchD</obj_property>
-      <obj_property name="ObjectShortName">BranchD</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/testbench/dut/mipscore/c/PCSrcD">
-      <obj_property name="ElementShortName">PCSrcD</obj_property>
-      <obj_property name="ObjectShortName">PCSrcD</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/testbench/dut/mipscore/c/ExtOpD">
-      <obj_property name="ElementShortName">ExtOpD</obj_property>
-      <obj_property name="ObjectShortName">ExtOpD</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/testbench/dut/mipscore/c/JumpD">
-      <obj_property name="ElementShortName">JumpD</obj_property>
-      <obj_property name="ObjectShortName">JumpD</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/testbench/dut/mipscore/c/RegWriteE">
-      <obj_property name="ElementShortName">RegWriteE</obj_property>
-      <obj_property name="ObjectShortName">RegWriteE</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/testbench/dut/mipscore/c/MemToRegE">
-      <obj_property name="ElementShortName">MemToRegE</obj_property>
-      <obj_property name="ObjectShortName">MemToRegE</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/testbench/dut/mipscore/c/memWriteE">
-      <obj_property name="ElementShortName">memWriteE</obj_property>
-      <obj_property name="ObjectShortName">memWriteE</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/testbench/dut/mipscore/c/ALUCtlE">
-      <obj_property name="ElementShortName">ALUCtlE[2:0]</obj_property>
-      <obj_property name="ObjectShortName">ALUCtlE[2:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/testbench/dut/mipscore/c/ALUSrcE">
-      <obj_property name="ElementShortName">ALUSrcE</obj_property>
-      <obj_property name="ObjectShortName">ALUSrcE</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/testbench/dut/mipscore/c/RegDstE">
-      <obj_property name="ElementShortName">RegDstE</obj_property>
-      <obj_property name="ObjectShortName">RegDstE</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/testbench/dut/mipscore/c/RegWriteM">
-      <obj_property name="ElementShortName">RegWriteM</obj_property>
-      <obj_property name="ObjectShortName">RegWriteM</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/testbench/dut/mipscore/c/MemToRegM">
-      <obj_property name="ElementShortName">MemToRegM</obj_property>
-      <obj_property name="ObjectShortName">MemToRegM</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/testbench/dut/mipscore/c/MemWriteM">
-      <obj_property name="ElementShortName">MemWriteM</obj_property>
-      <obj_property name="ObjectShortName">MemWriteM</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/testbench/dut/mipscore/c/RegWriteW">
-      <obj_property name="ElementShortName">RegWriteW</obj_property>
-      <obj_property name="ObjectShortName">RegWriteW</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/testbench/dut/mipscore/c/MemToRegW">
-      <obj_property name="ElementShortName">MemToRegW</obj_property>
-      <obj_property name="ObjectShortName">MemToRegW</obj_property>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/cpuclk">
+      <obj_property name="ElementShortName">cpuclk</obj_property>
+      <obj_property name="ObjectShortName">cpuclk</obj_property>
    </wvobject>
 </wave_config>

@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 module cache(
-	input CLK, Reset, Suspense,
+	input CLK, Reset, En, Suspense,
 	input [31:0] Addr,
 	input WE,
 	input [31:0] WD,
@@ -27,17 +27,18 @@ module cache(
 
 	assign addr = Addr;
 	assign wd = WD;
+	assign cwe = WE;
 	// flopenr #(32) address(~CLK, Reset, init, Addr, addr);
 	// flopenr #(32) writedata(~CLK, Reset, init, WD, wd);
-	flopenr #(1) writeenable(~CLK, Reset, init, WE, cwe); // Cache WriteEnable
+	// flopenr #(1) writeenable(~CLK, Reset, init, WE, cwe); // Cache WriteEnable
 
 	assign ctls = {we, setValid, setDirty, offset, init, offsetSW};
 
-	cachecontroller cctls(CLK, Reset, Suspense, cwe, Hit, MReady, dirty, we, setValid, setDirty, MWE, blockOffset, init, offsetSW);
+	cachecontroller cctls(CLK, Reset, En, Suspense, cwe, Hit, MReady, dirty, we, setValid, setDirty, MWE, blockOffset, init, offsetSW);
 
 	decode2to4 #(7) cdecode(ctls, addr[5:4], ctls0, ctls1, ctls2, ctls3);
 	mux4 #(60) dtmux({hit0, rd0, dirty0, outTag0}, {hit1, rd1, dirty1, outTag1}, {hit2, rd2, dirty2, outTag2}, {hit3, rd3, dirty3, outTag3}, addr[5:4], {Hit, rd, dirty, outTag});
-	mux2 #(32) rdmux(32'b0, rd, Hit & ~cwe, RD);
+	mux2 #(32) rdmux(32'b0, rd, Hit & ~cwe & En, RD);
 	mux2 #(58) mwmux({32'b0, addr[31:6]}, {rd, outTag}, MWE, {MWD, tag});
 	assign MAddr = {tag, addr[5:4], offset, 2'b00};
 
