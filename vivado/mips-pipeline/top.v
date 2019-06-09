@@ -18,7 +18,7 @@ module top(
 	assign LED[15] = clk1hz;
 
 	// MIPS + 显示模块 顶层文件
-	mips_top mipstop(clk1hz, SW[0], PC, PCNext, DispReadReg, DispReadMem, DispRegData, DispMemData, Instr);
+	mips_top mipstop(clk1hz, SW[0], PC, PCNext, DispReadReg, DispReadMem, DispRegData, DispMemData, Instr, LED[13], LED[14], LED[12], LED[11], LED[10:7], LED[6:3]);
 	display displaydata(clk2, SW[0], SW[3:2], SW[10:4], DispRegData, DispMemData, DispReadReg, DispReadMem, PC, PCNext, Instr, {CG, CF, CE, CD, CC, CB, CA}, AN[7:0], DP);
 
 	clkdiv clocker1(CLK100MHZ, SW[0], clk1, clk2, clk3);

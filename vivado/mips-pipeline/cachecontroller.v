@@ -5,7 +5,10 @@ module cachecontroller(
 	output WE, SetValid, SetDirty, MWE,
 	output [1:0] BlockOffset,
 	output Init,
-	output reg OffsetSW);
+	output reg OffsetSW,
+	output [3:0] State);
+
+	assign State = state;
 
 	reg [3:0] state, nextstate;
 	reg [5:0] ctls;

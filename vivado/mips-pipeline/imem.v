@@ -10,8 +10,8 @@ module imem(
 	reg [31:0] RAM[63:0];
 
 	initial
-		// $readmemh("/home/zhb/vivado/mips-pipeline/memfile.dat", RAM);
-		$readmemh("/home/zhb/vivado/mips-pipeline/run1.dat", RAM);
+		// $readmemh("/home/zhb/vivado/mips-pipeline/data/memfile.dat", RAM);
+		$readmemh("/home/zhb/vivado/mips-pipeline/data/run1.dat", RAM);
 
 	// assign RD = RAM[A];
 

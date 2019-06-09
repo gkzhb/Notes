@@ -12,7 +12,8 @@ module cache(
 	output MWE,
 	output [31:0] MWD,
 	input MReady,
-	input [31:0] MRD);
+	input [31:0] MRD,
+	output [3:0] State);
 // Cache 缓存模块 缓存为64字4路4组组相联高速缓存
 
 
@@ -34,7 +35,7 @@ module cache(
 
 	assign ctls = {we, setValid, setDirty, offset, init, offsetSW};
 
-	cachecontroller cctls(CLK, Reset, En, Suspense, cwe, Hit, MReady, dirty, we, setValid, setDirty, MWE, blockOffset, init, offsetSW);
+	cachecontroller cctls(CLK, Reset, En, Suspense, cwe, Hit, MReady, dirty, we, setValid, setDirty, MWE, blockOffset, init, offsetSW, State);
 
 	decode2to4 #(7) cdecode(ctls, addr[5:4], ctls0, ctls1, ctls2, ctls3);
 	mux4 #(60) dtmux({hit0, rd0, dirty0, outTag0}, {hit1, rd1, dirty1, outTag1}, {hit2, rd2, dirty2, outTag2}, {hit3, rd3, dirty3, outTag3}, addr[5:4], {Hit, rd, dirty, outTag});
