@@ -38,6 +38,13 @@ module decode2to4 #(WIDTH = 1)
 				Y2 <= 0;
 				Y0 <= 0;
 			end
+			default:
+			begin
+				Y0 <= 0;
+				Y1 <= 0;
+				Y2 <= 0;
+				Y3 <= 0;
+			end
 		endcase
 
 endmodule

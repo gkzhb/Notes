@@ -11,11 +11,11 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="700000000fs"></ZoomStartTime>
-      <ZoomEndTime time="1388000001fs"></ZoomEndTime>
-      <Cursor1Time time="1170000000fs"></Cursor1Time>
+      <ZoomStartTime time="715487600fs"></ZoomStartTime>
+      <ZoomEndTime time="993887601fs"></ZoomEndTime>
+      <Cursor1Time time="936488000fs"></Cursor1Time>
    </zoom_setting>
-   <WVObjectSize size="23" />
+   <WVObjectSize size="118" />
    <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/CLK">
       <obj_property name="ElementShortName">CLK</obj_property>
       <obj_property name="ObjectShortName">CLK</obj_property>
@@ -23,10 +23,6 @@
    <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/Reset">
       <obj_property name="ElementShortName">Reset</obj_property>
       <obj_property name="ObjectShortName">Reset</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/PC">
-      <obj_property name="ElementShortName">PC[31:0]</obj_property>
-      <obj_property name="ObjectShortName">PC[31:0]</obj_property>
    </wvobject>
    <wvobject db_ref_id="1" type="array" fp_name="/simcpu/PCNext">
       <obj_property name="ElementShortName">PCNext[31:0]</obj_property>
@@ -79,6 +75,7 @@
    <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/mipscore/dp/rf/rf">
       <obj_property name="ElementShortName">rf[31:0][31:0]</obj_property>
       <obj_property name="ObjectShortName">rf[31:0][31:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/instr_cache/cctls/state">
       <obj_property name="DisplayName">label</obj_property>
@@ -111,5 +108,402 @@
    <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/WD">
       <obj_property name="ElementShortName">WD[31:0]</obj_property>
       <obj_property name="ObjectShortName">WD[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_memory/RAM">
+      <obj_property name="ElementShortName">RAM[127:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">RAM[127:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/mipscore/c/md/ctls">
+      <obj_property name="ElementShortName">ctls[12:0]</obj_property>
+      <obj_property name="ObjectShortName">ctls[12:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/mipscore/dp/comp/A">
+      <obj_property name="ElementShortName">A[31:0]</obj_property>
+      <obj_property name="ObjectShortName">A[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/mipscore/dp/comp/B">
+      <obj_property name="ElementShortName">B[31:0]</obj_property>
+      <obj_property name="ObjectShortName">B[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/mipscore/dp/comp/Eq">
+      <obj_property name="ElementShortName">Eq</obj_property>
+      <obj_property name="ObjectShortName">Eq</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/mipscore/flushE">
+      <obj_property name="ElementShortName">flushE</obj_property>
+      <obj_property name="ObjectShortName">flushE</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/mipscore/dp/ALUOutM">
+      <obj_property name="ElementShortName">ALUOutM[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ALUOutM[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/mipscore/dp/srcAE">
+      <obj_property name="ElementShortName">srcAE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">srcAE[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/mipscore/dp/srcBE">
+      <obj_property name="ElementShortName">srcBE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">srcBE[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/mipscore/dp/rf/RA3">
+      <obj_property name="ElementShortName">RA3[4:0]</obj_property>
+      <obj_property name="ObjectShortName">RA3[4:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/mipscore/dp/rf/RA1">
+      <obj_property name="ElementShortName">RA1[4:0]</obj_property>
+      <obj_property name="ObjectShortName">RA1[4:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/mipscore/dp/rf/RA2">
+      <obj_property name="ElementShortName">RA2[4:0]</obj_property>
+      <obj_property name="ObjectShortName">RA2[4:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/mipscore/dp/rf/RD1">
+      <obj_property name="ElementShortName">RD1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RD1[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/mipscore/dp/rf/RD2">
+      <obj_property name="ElementShortName">RD2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RD2[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/mipscore/dp/signImmD">
+      <obj_property name="ElementShortName">signImmD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">signImmD[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/mipscore/dp/signImmE">
+      <obj_property name="ElementShortName">signImmE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">signImmE[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/mipscore/dp/ALUSrcE">
+      <obj_property name="ElementShortName">ALUSrcE</obj_property>
+      <obj_property name="ObjectShortName">ALUSrcE</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/mipscore/dp/srcbmux/D0">
+      <obj_property name="ElementShortName">D0[31:0]</obj_property>
+      <obj_property name="ObjectShortName">D0[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/mipscore/dp/srcbmux/D1">
+      <obj_property name="ElementShortName">D1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">D1[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/mipscore/dp/srcbmux/S">
+      <obj_property name="ElementShortName">S</obj_property>
+      <obj_property name="ObjectShortName">S</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/mipscore/dp/srcbmux/Y">
+      <obj_property name="ElementShortName">Y[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Y[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/mipscore/dp/srcbmux/WIDTH">
+      <obj_property name="ElementShortName">WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/mipscore/dp/aluOutE">
+      <obj_property name="ElementShortName">aluOutE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">aluOutE[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/mipscore/dp/forwardbdmux/D0">
+      <obj_property name="ElementShortName">D0[31:0]</obj_property>
+      <obj_property name="ObjectShortName">D0[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/mipscore/dp/forwardbdmux/D1">
+      <obj_property name="ElementShortName">D1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">D1[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/mipscore/dp/forwardbdmux/S">
+      <obj_property name="ElementShortName">S</obj_property>
+      <obj_property name="ObjectShortName">S</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/mipscore/dp/forwardbdmux/Y">
+      <obj_property name="ElementShortName">Y[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Y[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/mipscore/dp/forwardbdmux/WIDTH">
+      <obj_property name="ElementShortName">WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/mipscore/dp/h/rtD">
+      <obj_property name="ElementShortName">rtD[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rtD[4:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/mipscore/dp/h/WriteRegM">
+      <obj_property name="ElementShortName">WriteRegM[4:0]</obj_property>
+      <obj_property name="ObjectShortName">WriteRegM[4:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/mipscore/dp/h/RegWriteM">
+      <obj_property name="ElementShortName">RegWriteM</obj_property>
+      <obj_property name="ObjectShortName">RegWriteM</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/mipscore/dp/r2D/CLK">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/mipscore/dp/r2D/RESET">
+      <obj_property name="ElementShortName">RESET</obj_property>
+      <obj_property name="ObjectShortName">RESET</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/mipscore/dp/r2D/CLEAR">
+      <obj_property name="ElementShortName">CLEAR</obj_property>
+      <obj_property name="ObjectShortName">CLEAR</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/mipscore/dp/r2D/En">
+      <obj_property name="ElementShortName">En</obj_property>
+      <obj_property name="ObjectShortName">En</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/mipscore/dp/r2D/d">
+      <obj_property name="ElementShortName">d[31:0]</obj_property>
+      <obj_property name="ObjectShortName">d[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/mipscore/dp/r2D/q">
+      <obj_property name="ElementShortName">q[31:0]</obj_property>
+      <obj_property name="ObjectShortName">q[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/mipscore/dp/r2D/dt">
+      <obj_property name="ElementShortName">dt[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dt[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/mipscore/dp/r2D/WIDTH">
+      <obj_property name="ElementShortName">WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/mipscore/dp/JumpD">
+      <obj_property name="ElementShortName">JumpD</obj_property>
+      <obj_property name="ObjectShortName">JumpD</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/mipscore/c/md/Op">
+      <obj_property name="ElementShortName">Op[5:0]</obj_property>
+      <obj_property name="ObjectShortName">Op[5:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/PC">
+      <obj_property name="ElementShortName">PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/writeData">
+      <obj_property name="ElementShortName">writeData[31:0]</obj_property>
+      <obj_property name="ObjectShortName">writeData[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/dataAddr">
+      <obj_property name="ElementShortName">dataAddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dataAddr[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/dEn">
+      <obj_property name="ElementShortName">dEn</obj_property>
+      <obj_property name="ObjectShortName">dEn</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/memWrite">
+      <obj_property name="ElementShortName">memWrite</obj_property>
+      <obj_property name="ObjectShortName">memWrite</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/set0/blk0/data">
+      <obj_property name="ElementShortName">data[3:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">data[3:0][31:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/set1/blk0/data">
+      <obj_property name="ElementShortName">data[3:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">data[3:0][31:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/set2/blk0/data">
+      <obj_property name="ElementShortName">data[3:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">data[3:0][31:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/data_cache/set0/blk0/CLK">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/data_cache/set0/blk0/Reset">
+      <obj_property name="ElementShortName">Reset</obj_property>
+      <obj_property name="ObjectShortName">Reset</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/set0/blk0/Offset">
+      <obj_property name="ElementShortName">Offset[1:0]</obj_property>
+      <obj_property name="ObjectShortName">Offset[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/data_cache/set0/blk0/WE">
+      <obj_property name="ElementShortName">WE</obj_property>
+      <obj_property name="ObjectShortName">WE</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/data_cache/set0/blk0/SetValid">
+      <obj_property name="ElementShortName">SetValid</obj_property>
+      <obj_property name="ObjectShortName">SetValid</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/data_cache/set0/blk0/SetDirty">
+      <obj_property name="ElementShortName">SetDirty</obj_property>
+      <obj_property name="ObjectShortName">SetDirty</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/set0/blk0/SetTag">
+      <obj_property name="ElementShortName">SetTag[25:0]</obj_property>
+      <obj_property name="ObjectShortName">SetTag[25:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/set0/blk0/WD">
+      <obj_property name="ElementShortName">WD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WD[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/data_cache/set0/blk0/Valid">
+      <obj_property name="ElementShortName">Valid</obj_property>
+      <obj_property name="ObjectShortName">Valid</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/data_cache/set0/blk0/Dirty">
+      <obj_property name="ElementShortName">Dirty</obj_property>
+      <obj_property name="ObjectShortName">Dirty</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/set0/blk0/Tag">
+      <obj_property name="ElementShortName">Tag[25:0]</obj_property>
+      <obj_property name="ObjectShortName">Tag[25:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/set0/blk0/RD">
+      <obj_property name="ElementShortName">RD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RD[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/set0/blk0/data">
+      <obj_property name="ElementShortName">data[3:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">data[3:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/data_cache/set0/blk0/dirty">
+      <obj_property name="ElementShortName">dirty</obj_property>
+      <obj_property name="ObjectShortName">dirty</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/set0/valid">
+      <obj_property name="ElementShortName">valid[3:0]</obj_property>
+      <obj_property name="ObjectShortName">valid[3:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/ctls">
+      <obj_property name="ElementShortName">ctls[6:0]</obj_property>
+      <obj_property name="ObjectShortName">ctls[6:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/WD">
+      <obj_property name="ElementShortName">WD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WD[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/data_cache/WE">
+      <obj_property name="ElementShortName">WE</obj_property>
+      <obj_property name="ObjectShortName">WE</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/data_cache/Suspense">
+      <obj_property name="ElementShortName">Suspense</obj_property>
+      <obj_property name="ObjectShortName">Suspense</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/Addr">
+      <obj_property name="ElementShortName">Addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/set0/blk1/Tag">
+      <obj_property name="ElementShortName">Tag[25:0]</obj_property>
+      <obj_property name="ObjectShortName">Tag[25:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/set0/blk1/SetTag">
+      <obj_property name="ElementShortName">SetTag[25:0]</obj_property>
+      <obj_property name="ObjectShortName">SetTag[25:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/data_cache/set0/blk1/WE">
+      <obj_property name="ElementShortName">WE</obj_property>
+      <obj_property name="ObjectShortName">WE</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/cctls/state">
+      <obj_property name="ElementShortName">state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">state[3:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/set0/Ctls">
+      <obj_property name="ElementShortName">Ctls[6:0]</obj_property>
+      <obj_property name="ObjectShortName">Ctls[6:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/set0/we">
+      <obj_property name="ElementShortName">we[3:0]</obj_property>
+      <obj_property name="ObjectShortName">we[3:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/data_cache/set0/wen">
+      <obj_property name="ElementShortName">wen</obj_property>
+      <obj_property name="ObjectShortName">wen</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/set0/s">
+      <obj_property name="ElementShortName">s[1:0]</obj_property>
+      <obj_property name="ObjectShortName">s[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/data_cache/set0/replctl/Init">
+      <obj_property name="ElementShortName">Init</obj_property>
+      <obj_property name="ObjectShortName">Init</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/set0/replctl/Eq">
+      <obj_property name="ElementShortName">Eq[3:0]</obj_property>
+      <obj_property name="ObjectShortName">Eq[3:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/set0/replctl/S">
+      <obj_property name="ElementShortName">S[1:0]</obj_property>
+      <obj_property name="ObjectShortName">S[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/data_cache/set0/blk0/SetValid">
+      <obj_property name="ElementShortName">SetValid</obj_property>
+      <obj_property name="ObjectShortName">SetValid</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/set0/replctl/count">
+      <obj_property name="ElementShortName">count[3:0][1:0]</obj_property>
+      <obj_property name="ObjectShortName">count[3:0][1:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/set0/replctl/cntnext">
+      <obj_property name="ElementShortName">cntnext[3:0][1:0]</obj_property>
+      <obj_property name="ObjectShortName">cntnext[3:0][1:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/set0/replctl/toadd1">
+      <obj_property name="ElementShortName">toadd1[3:0]</obj_property>
+      <obj_property name="ObjectShortName">toadd1[3:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/set0/replctl/toadd">
+      <obj_property name="ElementShortName">toadd[3:0]</obj_property>
+      <obj_property name="ObjectShortName">toadd[3:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/set0/replctl/snext">
+      <obj_property name="ElementShortName">snext[1:0]</obj_property>
+      <obj_property name="ObjectShortName">snext[1:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/simcpu/mipstopwithcache/data_cache/set0/replctl/Hit">
+      <obj_property name="ElementShortName">Hit</obj_property>
+      <obj_property name="ObjectShortName">Hit</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/set0/replctl/Valid">
+      <obj_property name="ElementShortName">Valid[3:0]</obj_property>
+      <obj_property name="ObjectShortName">Valid[3:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/set0/replctl/s1">
+      <obj_property name="ElementShortName">s1[1:0]</obj_property>
+      <obj_property name="ObjectShortName">s1[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/set0/replctl/s0">
+      <obj_property name="ElementShortName">s0[1:0]</obj_property>
+      <obj_property name="ObjectShortName">s0[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/set0/replctl/s00">
+      <obj_property name="ElementShortName">s00[1:0]</obj_property>
+      <obj_property name="ObjectShortName">s00[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/set0/replctl/s01">
+      <obj_property name="ElementShortName">s01[1:0]</obj_property>
+      <obj_property name="ObjectShortName">s01[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/set0/tag">
+      <obj_property name="ElementShortName">tag[3:0][25:0]</obj_property>
+      <obj_property name="ObjectShortName">tag[3:0][25:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/set0/Addr">
+      <obj_property name="ElementShortName">Addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/set0/inTag">
+      <obj_property name="ElementShortName">inTag[25:0]</obj_property>
+      <obj_property name="ObjectShortName">inTag[25:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/simcpu/mipstopwithcache/data_cache/set0/setTag">
+      <obj_property name="ElementShortName">setTag[25:0]</obj_property>
+      <obj_property name="ObjectShortName">setTag[25:0]</obj_property>
    </wvobject>
 </wave_config>

@@ -24,7 +24,8 @@ module set(
 	assign eq[2] = ~|(inTag + (~tag[2] + 1)) & valid[2];
 	assign eq[3] = ~|(inTag + (~tag[3] + 1)) & valid[3];
 
-	flopenr #(26) tags(CLK, Reset, init, inTag, setTag);
+	// flopenr #(26) tags(CLK, Reset, init, inTag, setTag);
+	assign setTag = inTag;
 
 	block blk0(CLK, Reset, offset, we[0], setValid, setDirty, setTag, wd, valid[0], dirty[0], tag[0], rd[0]);
 	block blk1(CLK, Reset, offset, we[1], setValid, setDirty, setTag, wd, valid[1], dirty[1], tag[1], rd[1]);

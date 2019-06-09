@@ -12,10 +12,10 @@ module replacecontroller(
 
 	wire [1:0] cntnext[3:0];
 	assign Hit = |Eq;
-	assign target[0] = &count[0];
-	assign target[1] = &count[1];
-	assign target[2] = &count[2];
-	assign target[3] = &count[3];
+	assign target[0] = &count[0] & Valid[0];
+	assign target[1] = &count[1] & Valid[1];
+	assign target[2] = &count[2] & Valid[2];
+	assign target[3] = &count[3] & Valid[3];
 
 	priorencode4to2 enc0(~Valid, s00);
 	encode4to2 enc1(Eq, s01);

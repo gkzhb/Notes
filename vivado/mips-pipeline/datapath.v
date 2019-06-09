@@ -67,7 +67,7 @@ module datapath(
 	assign rtD = instrD[20:16];
 	assign rdD = instrD[15:11];
 
-	assign flushD = PCSrcD | JumpD;
+	assign flushD = (PCSrcD | JumpD) & ~stallD; // Edited when debugging cache
 
 	// Execute
 	floprc #(32) r1E(CLK, Reset, FlushE, srcAD, srcAE);
