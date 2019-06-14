@@ -3,9 +3,9 @@
 module top(
 	input CLK100MHZ,
 	input [15:0] SW,
-    output CG, CF, CE, CD, CC, CB, CA,
-    output [7:0] AN,
-    output DP,
+	output CG, CF, CE, CD, CC, CB, CA,
+	output [7:0] AN,
+	output DP,
 	output [15:0] LED);
 
 	wire [31:0] DispRegData, DispMemData, PC, PCNext, Instr;

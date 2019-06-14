@@ -18,16 +18,17 @@ module dmem #(WIDTH = 7)
 
 	assign nextstate = state + 1;
 
-	integer i;
+	// integer i;
 	always @(posedge CLK)
-		if (Reset)
+		/* if (Reset)
 		begin
 			state <= 2'b00;
 			for (i = 0; i < 2**WIDTH; i = i + 1)
 				RAM[i] <= 32'b0;
 		end
-		else
+		else */
 			state <= nextstate;
+
 
 	always @(*)
 		if (state == 2'b11)

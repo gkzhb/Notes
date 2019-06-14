@@ -25,6 +25,6 @@ module maindec(
 			6'b001_010: ctls <= 13'b0110_1000_01110; // slti
 			6'b001_101: ctls <= 13'b0010_1000_00010; // ori
 			6'b000_010: ctls <= 13'b0000_0000_10000; // j
-			default: ctls <= 12'bxxxx_xxxx_xxxxx; //Illegal Op
+			default: ctls <= 13'bxxxx_xxxx_xxxxx; //Illegal Op
 		endcase
 endmodule

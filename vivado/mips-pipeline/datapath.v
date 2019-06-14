@@ -34,6 +34,7 @@ module datapath(
 	wire [31:0] pcPlus4D, instrD;
 	wire [31:0] aluOutE, aluOutW;
 	wire [31:0] readDataW, resultW;
+	wire zero;
 
 	hazard h(rsD, rtD, rsE, rtE, writeRegE, writeRegM, writeRegW,
 			RegWriteE, RegWriteM, RegWriteW,
@@ -79,7 +80,7 @@ module datapath(
 	mux4 #(32) forwardaemux(srcAE, resultW, ALUOutM, 32'b0, forwardaE, srcA2E);
 	mux4 #(32) forwardbemux(srcBE, resultW, ALUOutM, 32'b0, forwardbE, srcB2E);
 	mux2 #(32) srcbmux(srcB2E, signImmE, ALUSrcE, srcB3E);
-	ALU alu(srcA2E, srcB3E, ALUCtlE, aluOutE);
+	ALU alu(srcA2E, srcB3E, ALUCtlE, aluOutE, zero);
 	mux2 #(5) wrmux(rtE, rdE, RegDstE, writeRegE);
 
 	// Memory

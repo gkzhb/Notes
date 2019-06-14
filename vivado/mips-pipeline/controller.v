@@ -13,7 +13,7 @@ module controller(
 
 	wire [2:0] aluOpD0, aluOpD1, aluCtlD;
 
-	wire memToRegD, memWriteD, aluSrcD, regDstD, regWriteD, memWriteE, bneD, ExtOpD, rTypeD, dEnD, dEnE;
+	wire memToRegD, memWriteD, aluSrcD, regDstD, regWriteD, memWriteE, bneD, rTypeD, dEnD, dEnE;
 
 	maindec md(OpD[5:0], memToRegD, memWriteD, BranchD, aluSrcD, regDstD, regWriteD, JumpD, aluOpD0[2:0], bneD, ExtOpD, rTypeD, dEnD);
 	aludec ad(FunctD[5:0], aluOpD1[2:0]);

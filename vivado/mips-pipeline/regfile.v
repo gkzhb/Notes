@@ -13,7 +13,7 @@ module regfile(
 
 	always @(negedge CLK, posedge Reset)		// 下降沿写入
 		if (Reset)
-			$readmemh("/home/zhb/vivado/mips-pipeline/clear.dat", rf);
+			$readmemh("/home/zhb/vivado/mips-pipeline/data/clear.dat", rf);
 		else
 			if (WE3)
 				rf[RA3] <= WD3;
